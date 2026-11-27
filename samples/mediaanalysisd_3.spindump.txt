@@ -1,0 +1,897 @@
+Analysis of sampling mediaanalysisd (pid 95619) every 1 millisecond
+Process:         mediaanalysisd [95619]
+Path:            /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+Identifier:      mediaanalysisd
+Version:         1.0 (460.14.5.2)
+Code Type:       ARM64E
+Platform:        macOS
+Parent Process:  launchd [1]
+Target Type:     live task
+
+Date/Time:       2026-11-24 8:00:27.472 PM +0000
+Launch Time:     2026-11-24 7:59:12.201 PM +0000
+OS Version:      macOS 27.2.1 (26B131)
+Report Version:  7
+Analysis Tool:   /usr/bin/sample
+
+Physical footprint:         14.5M
+Physical footprint (peak):  41.8M
+Idle exit:                  dirty
+----
+
+Call graph:
+    2582 Thread_1   DispatchQueue_1: com.apple.main-thread  (serial)
+    + 2582 start  (in dyld) + 6652
+    +   2582 ???  (in mediaanalysisd)  load address
+    +     2582 ???  (in mediaanalysisd)  load address
+    +       2582 CFRunLoopRun  (in CoreFoundation) + 64
+    +         2582 _CFRunLoopRunSpecificWithOptions  (in CoreFoundation) + 536
+    +           2582 __CFRunLoopRun  (in CoreFoundation) + 1172
+    +             2582 __CFRunLoopServiceMachPort  (in CoreFoundation) + 160
+    +               2582 mach_msg  (in libsystem_kernel.dylib) + 24
+    +                 2582 mach_msg_overwrite  (in libsystem_kernel.dylib) + 480
+    +                   2582 mach_msg2_internal  (in libsystem_kernel.dylib) + 76
+    +                     2582 mach_msg2_trap  (in libsystem_kernel.dylib) + 8
+    2582 Thread_2
+    + 2582 start_wqthread  (in libsystem_pthread.dylib) + 8
+    +   2582 _pthread_wqthread  (in libsystem_pthread.dylib) + 368
+    +     2582 __workq_kernreturn  (in libsystem_kernel.dylib) + 8
+    2582 Thread_3   DispatchQueue_316: com.apple.CoreML.MLPredictionEvent  (serial)
+    + 2582 start_wqthread  (in libsystem_pthread.dylib) + 8
+    +   2582 _pthread_wqthread  (in libsystem_pthread.dylib) + 292
+    +     2582 _dispatch_workloop_worker_thread  (in libdispatch.dylib) + 720
+    +       2582 _dispatch_root_queue_drain_deferred_wlh  (in libdispatch.dylib) + 284
+    +         2582 _dispatch_lane_invoke  (in libdispatch.dylib) + 392
+    +           2582 _dispatch_lane_serial_drain  (in libdispatch.dylib) + 744
+    +             2582 _dispatch_client_callout  (in libdispatch.dylib) + 16
+    +               2582 _dispatch_call_block_and_release  (in libdispatch.dylib) + 32
+    +                 2582 __45-[MLPredictionEvent maybeLogPredictionEvent:]_block_invoke  (in CoreML) + 64
+    2582 Thread_4
+    + 2582 start_wqthread  (in libsystem_pthread.dylib) + 0
+    2582 Thread_5   DispatchQueue_93: com.apple.photos.PLChangeHandlingNotificationObserver.lowNotifyQueue  (serial)
+      2582 start_wqthread  (in libsystem_pthread.dylib) + 8
+        2582 _pthread_wqthread  (in libsystem_pthread.dylib) + 292
+          2582 _dispatch_workloop_worker_thread  (in libdispatch.dylib) + 720
+            2582 _dispatch_root_queue_drain_deferred_wlh  (in libdispatch.dylib) + 284
+              2582 _dispatch_workloop_invoke  (in libdispatch.dylib) + 1604
+                2582 _dispatch_lane_invoke  (in libdispatch.dylib) + 448
+                  2582 _dispatch_lane_serial_drain  (in libdispatch.dylib) + 744
+                    2582 _dispatch_client_callout  (in libdispatch.dylib) + 16
+                      2582 _dispatch_block_async_invoke2  (in libdispatch.dylib) + 148
+                        2582 ???  (in libsystem_notify.dylib)  load address
+                          2582 __pl_notify_register_dispatch_block_invoke  (in PhotoLibraryServicesCore) + 56
+                            2582 __89-[PLChangeHandlingNotificationObserver _lock_startObservingRemoteNotificationsWithBlock:]_block_invoke  (in PhotoLibraryServices) + 24
+                              2582 objc_loadWeakRetained  (in libobjc.A.dylib) + 172
+                                2582 weak_entry_for_referent  (in libobjc.A.dylib) + 80
+
+Total number in stack (recursive counted multiple, when >=5):
+
+Sort by top of stack, same collapsed (when >= 5):
+        __45-[MLPredictionEvent maybeLogPredictionEvent:]_block_invoke  (in CoreML)        2582
+        __workq_kernreturn  (in libsystem_kernel.dylib)        2582
+        mach_msg2_trap  (in libsystem_kernel.dylib)        2582
+        start_wqthread  (in libsystem_pthread.dylib)        2582
+        weak_entry_for_referent  (in libobjc.A.dylib)        2582
+
+Binary Images:
+       mediaanalysisd (1.0 - 460.14.5.2) /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/mediaanalysisd
+       libobjc-trampolines.dylib (973.1) /usr/lib/libobjc-trampolines.dylib
+       libobjc.A.dylib (973.1) /usr/lib/libobjc.A.dylib
+       libsharedcache.dylib (0) /usr/lib/libsharedcache.dylib
+       libdyld.dylib (27104) /usr/lib/system/libdyld.dylib
+       dyld (1.0.0 - 27104) /usr/lib/dyld
+       libsystem_kernel.dylib (13432.41.4) /usr/lib/system/libsystem_kernel.dylib
+       libsystem_pthread.dylib (553.40.2) /usr/lib/system/libsystem_pthread.dylib
+       libsystem_notify.dylib (368.40.2) /usr/lib/system/libsystem_notify.dylib
+       libsystem_c.dylib (1786.40.6) /usr/lib/system/libsystem_c.dylib
+       libswiftCore.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswiftCore.dylib
+       com.apple.Foundation (6.9 - 5027.1.8) /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
+       libsystem_malloc.dylib (886.41.1) /usr/lib/system/libsystem_malloc.dylib
+       libsystem_darwin.dylib (1786.40.6) /usr/lib/system/libsystem_darwin.dylib
+       com.apple.CoreGraphics (2.0 - 2050.1.6) /System/Library/Frameworks/CoreGraphics.framework/Versions/A/CoreGraphics
+       com.apple.SkyLight (1.600.0 - 957.8.8) /System/Library/PrivateFrameworks/SkyLight.framework/Versions/A/SkyLight
+       com.apple.Network (1.0 - 6681.41.1) /System/Library/Frameworks/Network.framework/Versions/A/Network
+       com.apple.CoreDisplay (291.4 - 291.4) /System/Library/Frameworks/CoreDisplay.framework/Versions/A/CoreDisplay
+       com.apple.DebugSymbols (219 - 219) /System/Library/PrivateFrameworks/DebugSymbols.framework/Versions/A/DebugSymbols
+       com.apple.UniformTypeIdentifiers (709 - 709) /System/Library/Frameworks/UniformTypeIdentifiers.framework/Versions/A/UniformTypeIdentifiers
+       libswift_Concurrency.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswift_Concurrency.dylib
+       com.apple.CoreFoundation (6.9 - 5027.1.8) /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+       libxpc.dylib (3298.40.28) /usr/lib/system/libxpc.dylib
+       libcorecrypto.dylib (2109.40.22) /usr/lib/system/libcorecrypto.dylib
+       libsystem_info.dylib (603.40.2) /usr/lib/system/libsystem_info.dylib
+       libc++abi.dylib (2200.32) /usr/lib/libc++abi.dylib
+       com.apple.ColorSync (4.13.0 - 3929.1.5) /System/Library/Frameworks/ColorSync.framework/Versions/A/ColorSync
+       com.apple.framework.IOKit (2.0.2 - 100288.40.8.0.1) /System/Library/Frameworks/IOKit.framework/Versions/A/IOKit
+       com.apple.security (7.0 - 62460.40.78) /System/Library/Frameworks/Security.framework/Versions/A/Security
+       libsystem_coreservices.dylib (203.1.1) /usr/lib/system/libsystem_coreservices.dylib
+       com.apple.accessibility.AXCoreUtilities (1.0 - 1) /System/Library/PrivateFrameworks/AXCoreUtilities.framework/Versions/A/AXCoreUtilities
+       libsystem_trace.dylib (1966.40.15.0.2) /usr/lib/system/libsystem_trace.dylib
+       libsystem_blocks.dylib (98.1) /usr/lib/system/libsystem_blocks.dylib
+       libdispatch.dylib (1605.40.4) /usr/lib/system/libdispatch.dylib
+       libsystem_platform.dylib (402.40.3) /usr/lib/system/libsystem_platform.dylib
+       libsystem_featureflags.dylib (111) /usr/lib/system/libsystem_featureflags.dylib
+       libc++.1.dylib (2200.32) /usr/lib/libc++.1.dylib
+       libicucore.A.dylib (78138) /usr/lib/libicucore.A.dylib
+       com.apple.CoreServices.CarbonCore (1333 - 1333) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/CarbonCore.framework/Versions/A/CarbonCore
+       com.apple.CoreServicesInternal (505 - 505) /System/Library/PrivateFrameworks/CoreServicesInternal.framework/Versions/A/CoreServicesInternal
+       com.apple.LaunchServices (1141.1 - 1141.1) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/LaunchServices.framework/Versions/A/LaunchServices
+       com.apple.CoreSceneUnderstanding (1.74.0 - 1.74.0) /System/Library/PrivateFrameworks/CoreSceneUnderstanding.framework/Versions/A/CoreSceneUnderstanding
+       com.apple.CoreML (1.0 - 3600.25.2) /System/Library/Frameworks/CoreML.framework/Versions/A/CoreML
+       com.apple.CoreML.MLAssetIO (1.0 - 3600.25.2) /System/Library/PrivateFrameworks/MLAssetIO.framework/Versions/A/MLAssetIO
+       libTelephonyUtilDynamic.dylib (6575) /usr/lib/libTelephonyUtilDynamic.dylib
+       com.apple.ATSUI (1.0 - 1) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATSUI.framework/Versions/A/ATSUI
+       com.apple.UIFoundation (1.0 - 1057.4) /System/Library/PrivateFrameworks/UIFoundation.framework/Versions/A/UIFoundation
+       com.apple.Montreal (1.0 - 178) /System/Library/PrivateFrameworks/Montreal.framework/Versions/A/Montreal
+       libswiftDispatch.dylib (1605.40.4) /usr/lib/swift/libswiftDispatch.dylib
+       com.apple.RunningBoardServices (1.0 - 1084.40.7) /System/Library/PrivateFrameworks/RunningBoardServices.framework/Versions/A/RunningBoardServices
+       com.apple.BaseBoard (827.2.3 - 827.2.3) /System/Library/PrivateFrameworks/BaseBoard.framework/Versions/A/BaseBoard
+       libMobileGestalt.dylib (1622.40.11) /usr/lib/libMobileGestalt.dylib
+       com.apple.analyticsd (1.0 - 1) /System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+       libsqlite3.dylib (408) /usr/lib/libsqlite3.dylib
+       libsystem_containermanager.dylib (833.40.18.0.1) /usr/lib/system/libsystem_containermanager.dylib
+       libCheckFix.dylib (33) /usr/lib/libCheckFix.dylib
+       com.apple.CSStore (1141.1 - 1141.1) /System/Library/PrivateFrameworks/CoreServicesStore.framework/Versions/A/CoreServicesStore
+       com.apple.IOSurface (403.1 - 403.1) /System/Library/Frameworks/IOSurface.framework/Versions/A/IOSurface
+       libswiftos.dylib (1090.40.3) /usr/lib/swift/libswiftos.dylib
+       libswiftObjectiveC.dylib (973.1) /usr/lib/swift/libswiftObjectiveC.dylib
+       com.apple.TCC (1.0 - 1) /System/Library/PrivateFrameworks/TCC.framework/Versions/A/TCC
+       libsystem_asl.dylib (409.40.3) /usr/lib/system/libsystem_asl.dylib
+       com.apple.CoreLocation.LocationEssentials (1.0 - 1) /System/Library/Frameworks/_LocationEssentials.framework/Versions/A/_LocationEssentials
+       com.apple.CoreData (120 - 1634) /System/Library/Frameworks/CoreData.framework/Versions/A/CoreData
+       com.apple.SystemConfiguration (1.21 - 1.21) /System/Library/Frameworks/SystemConfiguration.framework/Versions/A/SystemConfiguration
+       com.apple.CollectionsInternal (1.2.0 - 5027.1.6) /System/Library/PrivateFrameworks/CollectionsInternal.framework/Versions/A/CollectionsInternal
+       com.apple.AtomicsInternal (1.1.0 - 5027.1.6) /System/Library/PrivateFrameworks/AtomicsInternal.framework/Versions/A/AtomicsInternal
+       libsandbox.1.dylib (3051.41.1) /usr/lib/libsandbox.1.dylib
+       com.apple.AppleKeyStore (1.0 - 1.0) /System/Library/PrivateFrameworks/AppleKeyStore.framework/Versions/A/AppleKeyStore
+       com.apple.biome.BiomeFoundation (1.0 - 259) /System/Library/PrivateFrameworks/BiomeFoundation.framework/Versions/A/BiomeFoundation
+       com.apple.proactive.support.ProactiveSupport (1.0 - 425) /System/Library/PrivateFrameworks/ProactiveSupport.framework/Versions/A/ProactiveSupport
+       com.apple.ProtocolBuffer (1 - 326.21.9.18.1) /System/Library/PrivateFrameworks/ProtocolBuffer.framework/Versions/A/ProtocolBuffer
+       com.apple.Accounts (113 - 113) /System/Library/Frameworks/Accounts.framework/Versions/A/Accounts
+       com.apple.UserManagement (1.0 - 1) /System/Library/PrivateFrameworks/UserManagement.framework/Versions/A/UserManagement
+       com.apple.OpenDirectory (27.2 - 737.40.2) /System/Library/Frameworks/OpenDirectory.framework/Versions/A/OpenDirectory
+       com.apple.CFOpenDirectory (27.2 - 737.40.2) /System/Library/Frameworks/OpenDirectory.framework/Versions/A/Frameworks/CFOpenDirectory.framework/Versions/A/CFOpenDirectory
+       libobjcMsgSend.dylib (973.1) /usr/lib/objc/libobjcMsgSend.dylib
+       com.apple.ANECompiler (10.205.4 - 10.205.4) /System/Library/PrivateFrameworks/ANECompiler.framework/Versions/A/ANECompiler
+       com.apple.AppKit (6.9 - 2775.20.133) /System/Library/Frameworks/AppKit.framework/Versions/C/AppKit
+       com.apple.CFNetwork (1.0 - 3896.200.61) /System/Library/Frameworks/CFNetwork.framework/Versions/A/CFNetwork
+       com.apple.IntelligencePlatformLibrary (441.26.3) /System/Library/PrivateFrameworks/IntelligencePlatformLibrary.framework/Versions/A/IntelligencePlatformLibrary
+       com.apple.cloudkit.CloudKit (2720.17.5 - 2720.17.5) /System/Library/Frameworks/CloudKit.framework/Versions/A/CloudKit
+       com.apple.ExtensionFoundation (97 - 97) /System/Library/Frameworks/ExtensionFoundation.framework/Versions/A/ExtensionFoundation
+       com.apple.BoardServices (1.0 - 827.2.3) /System/Library/PrivateFrameworks/BoardServices.framework/Versions/A/BoardServices
+       libswiftXPC.dylib (167.0.2) /usr/lib/swift/libswiftXPC.dylib
+       libswift_StringProcessing.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswift_StringProcessing.dylib
+       com.apple.combine (1.0 - 3023) /System/Library/Frameworks/Combine.framework/Versions/A/Combine
+       com.apple.ImageIO (3.3.0 - 2851.1.8) /System/Library/Frameworks/ImageIO.framework/Versions/A/ImageIO
+       com.apple.QuartzCore (1223.10.17.2 - 1223.10.17.2) /System/Library/Frameworks/QuartzCore.framework/Versions/A/QuartzCore
+       libAccessibility.dylib (3245.8.6.2) /usr/lib/libAccessibility.dylib
+       libFontRegistry.dylib (425) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/Resources/libFontRegistry.dylib
+       com.apple.CoreText (910 - 910) /System/Library/Frameworks/CoreText.framework/Versions/A/CoreText
+       com.apple.AE (944 - 944) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/AE.framework/Versions/A/AE
+       com.apple.CoreSpotlight (1.0 - 2465.1.9.400) /System/Library/Frameworks/CoreSpotlight.framework/Versions/A/CoreSpotlight
+       com.apple.spotlight.metadata.utilities (1.0 - 2465.1.9.400) /System/Library/PrivateFrameworks/MetadataUtilities.framework/Versions/A/MetadataUtilities
+       com.apple.UserNotifications (1.0 - 720.2.7) /System/Library/Frameworks/UserNotifications.framework/Versions/A/UserNotifications
+       libenergytrace.dylib (23) /usr/lib/libenergytrace.dylib
+       com.apple.WindowManagement (1.0 - 462.1.41.404) /System/Library/PrivateFrameworks/WindowManagement.framework/Versions/A/WindowManagement
+       com.apple.HIToolbox (2.1.1 - 1273.14) /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/HIToolbox.framework/Versions/A/HIToolbox
+       com.apple.FrontBoardServices (1153.2.2 - 1153.2.2) /System/Library/PrivateFrameworks/FrontBoardServices.framework/Versions/A/FrontBoardServices
+       com.apple.coreui (2.1 - 1011.4) /System/Library/PrivateFrameworks/CoreUI.framework/Versions/A/CoreUI
+       com.apple.PowerLog (1.0 - 1) /System/Library/PrivateFrameworks/PowerLog.framework/Versions/A/PowerLog
+       com.apple.biome.BiomeStorage (1.0 - 259) /System/Library/PrivateFrameworks/BiomeStorage.framework/Versions/A/BiomeStorage
+       com.apple.biome.BiomeStreams (1.0 - 259) /System/Library/PrivateFrameworks/BiomeStreams.framework/Versions/A/BiomeStreams
+       com.apple.BackgroundSystemTasks (1.0 - 1) /System/Library/PrivateFrameworks/BackgroundSystemTasks.framework/Versions/A/BackgroundSystemTasks
+       com.apple.DuetActivityScheduler (1.0 - 1) /System/Library/PrivateFrameworks/DuetActivityScheduler.framework/Versions/A/DuetActivityScheduler
+       libusrtcp.dylib (6681.41.1) /usr/lib/libusrtcp.dylib
+       libboringssl.dylib (583.40.6) /usr/lib/libboringssl.dylib
+       libsystem_networkextension.dylib (2365.40.3.0.2) /usr/lib/system/libsystem_networkextension.dylib
+       libdns_services.dylib (3111.40.45) /usr/lib/libdns_services.dylib
+       com.apple.security.CryptoKit (1.0 - 1) /System/Library/Frameworks/CryptoKit.framework/Versions/A/CryptoKit
+       com.apple.GenerativeFunctions.GenerativeFunctionsFoundation (1.0 - 297.12.2.1) /System/Library/PrivateFrameworks/GenerativeFunctionsFoundation.framework/Versions/A/GenerativeFunctionsFoundation
+       com.apple.MobileAssets (1.0 - 2215.41.3) /System/Library/PrivateFrameworks/MobileAsset.framework/Versions/A/MobileAsset
+       com.apple.SoftwareUpdateCoreSupport (1.0 - 1) /System/Library/PrivateFrameworks/SoftwareUpdateCoreSupport.framework/Versions/A/SoftwareUpdateCoreSupport
+       libsystem_sandbox.dylib (3051.41.1) /usr/lib/system/libsystem_sandbox.dylib
+       com.apple.aps.framework (4.0 - 4.0) /System/Library/PrivateFrameworks/ApplePushService.framework/Versions/A/ApplePushService
+       com.apple.commonutilities (8.0 - 900) /System/Library/PrivateFrameworks/CommonUtilities.framework/Versions/A/CommonUtilities
+       com.apple.UpdateCycle (1 - 1) /System/Library/PrivateFrameworks/UpdateCycle.framework/Versions/A/UpdateCycle
+       libobjcMsgSend1.dylib (973.1) /usr/lib/objc/libobjcMsgSend1.dylib
+       com.apple.SwiftUICore (8.1.13.1.406 - 8.1.13.1.406) /System/Library/Frameworks/SwiftUICore.framework/Versions/A/SwiftUICore
+       com.apple.BiomeLibrary (441.26.3) /System/Library/PrivateFrameworks/BiomeLibrary.framework/Versions/A/BiomeLibrary
+       com.apple.ModelCatalog.ModelCatalog (1.0 - 308.12) /System/Library/PrivateFrameworks/ModelCatalog.framework/Versions/A/ModelCatalog
+       com.apple.CoreUtils (9.0 - 910.33) /System/Library/PrivateFrameworks/CoreUtils.framework/Versions/A/CoreUtils
+       com.apple.GenerativeFunctions.GenerativeModelsFoundation (1.0 - 297.12.2.1) /System/Library/PrivateFrameworks/GenerativeModelsFoundation.framework/Versions/A/GenerativeModelsFoundation
+       com.apple.GenerativeFunctions.GenerativeModels (1.0 - 297.12.2.1) /System/Library/PrivateFrameworks/GenerativeModels.framework/Versions/A/GenerativeModels
+       com.apple.UIIntelligenceSupport (1.0 - 1) /System/Library/PrivateFrameworks/UIIntelligenceSupport.framework/Versions/A/UIIntelligenceSupport
+       com.apple.HIServices (1.22 - 835.6) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/HIServices.framework/Versions/A/HIServices
+       libswiftObservation.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswiftObservation.dylib
+       libswiftSynchronization.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswiftSynchronization.dylib
+       com.apple.biome.CascadeSets (1.0 - 259) /System/Library/PrivateFrameworks/CascadeSets.framework/Versions/A/CascadeSets
+       com.apple.PerformanceAnalysis (1.441 - 441) /System/Library/PrivateFrameworks/PerformanceAnalysis.framework/Versions/A/PerformanceAnalysis
+       com.apple.AddressBook.ContactsFoundation (8.0 - 1430.200.41) /System/Library/PrivateFrameworks/ContactsFoundation.framework/Versions/A/ContactsFoundation
+       com.apple.contacts (1.0 - 3846.200.91.1.2) /System/Library/Frameworks/Contacts.framework/Versions/A/Contacts
+       com.apple.corelocation (3186.0.22 - 3186.0.22) /System/Library/Frameworks/CoreLocation.framework/Versions/A/CoreLocation
+       com.apple.Intents (1.0 - 1) /System/Library/Frameworks/Intents.framework/Versions/A/Intents
+       com.apple.AttributeGraph (8.1.3 - 8.1.3) /System/Library/PrivateFrameworks/AttributeGraph.framework/Versions/A/AttributeGraph
+       libswiftCoreFoundation.dylib (2412) /usr/lib/swift/libswiftCoreFoundation.dylib
+       com.apple.vImage (8.1 - 650.40.4) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vImage.framework/Versions/A/vImage
+       com.apple.InternationalSupport (1.0 - 74) /System/Library/PrivateFrameworks/InternationalSupport.framework/Versions/A/InternationalSupport
+       libsystem_symptoms.dylib (2394.40.17) /usr/lib/system/libsystem_symptoms.dylib
+       com.apple.dt.XCTTargetBootstrap (27.2 - 25427) /System/Library/PrivateFrameworks/XCTTargetBootstrap.framework/Versions/A/XCTTargetBootstrap
+       com.apple.framework.DFRFoundation (1.0 - 298.1.2) /System/Library/PrivateFrameworks/DFRFoundation.framework/Versions/A/DFRFoundation
+       com.apple.CoreSVG (1.0 - 362) /System/Library/PrivateFrameworks/CoreSVG.framework/Versions/A/CoreSVG
+       libxml2.2.dylib (40.1) /usr/lib/libxml2.2.dylib
+       libFontParser.dylib (463.1.0.1) /System/Library/PrivateFrameworks/FontServices.framework/libFontParser.dylib
+       com.apple.IOGPU (162.16.1 - 162.16.1) /System/Library/PrivateFrameworks/IOGPU.framework/Versions/A/IOGPU
+       com.apple.Metal (383.1 - 383.1) /System/Library/Frameworks/Metal.framework/Versions/A/Metal
+       com.apple.IOAccelerator (491 - 491) /System/Library/PrivateFrameworks/IOAccelerator.framework/Versions/A/IOAccelerator
+       com.apple.CoreVideo (1.8 - 776.2) /System/Library/Frameworks/CoreVideo.framework/Versions/A/CoreVideo
+       com.apple.CoreMedia (1.0 - 3385.14.5.2) /System/Library/Frameworks/CoreMedia.framework/Versions/A/CoreMedia
+       com.apple.AVFCore (1.0 - 2475.13.5.1) /System/Library/PrivateFrameworks/AVFCore.framework/Versions/A/AVFCore
+       com.apple.pluginkit.framework (1.0 - 1) /System/Library/PrivateFrameworks/PlugInKit.framework/Versions/A/PlugInKit
+       com.apple.contacts.ContactsPersistence (1.0 - 3846.200.91.1.2) /System/Library/PrivateFrameworks/ContactsPersistence.framework/Versions/A/ContactsPersistence
+       com.apple.contacts.ContactsMetrics (1 - 28.200.1) /System/Library/PrivateFrameworks/ContactsMetrics.framework/Versions/A/ContactsMetrics
+       com.apple.AuthKit (1.0 - 1) /System/Library/PrivateFrameworks/AuthKit.framework/Versions/A/AuthKit
+       com.apple.DiskArbitration (2.7 - 2.7) /System/Library/Frameworks/DiskArbitration.framework/Versions/A/DiskArbitration
+       com.apple.Metadata (27.2 - 2465.1.9.400) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/Metadata.framework/Versions/A/Metadata
+       com.apple.imfoundation (10.0 - 1000) /System/Library/PrivateFrameworks/IMFoundation.framework/Versions/A/IMFoundation
+       com.apple.idsfoundation (10.0 - 1000) /System/Library/PrivateFrameworks/IDSFoundation.framework/Versions/A/IDSFoundation
+       com.apple.ids (10.0 - 1000) /System/Library/PrivateFrameworks/IDS.framework/Versions/A/IDS
+       com.apple.login (3.0 - 3.0) /System/Library/PrivateFrameworks/login.framework/Versions/A/login
+       com.apple.loginsupport (3.0 - 273.2.1) /System/Library/PrivateFrameworks/login.framework/Versions/A/Frameworks/loginsupport.framework/Versions/A/loginsupport
+       com.apple.ProtectedCloudStorage (1.0 - 1) /System/Library/PrivateFrameworks/ProtectedCloudStorage.framework/Versions/A/ProtectedCloudStorage
+       com.apple.AppSupport (1.0.0 - 29) /System/Library/PrivateFrameworks/AppSupport.framework/Versions/A/AppSupport
+       com.apple.TrialProto (1.0 - 511.1.2) /System/Library/PrivateFrameworks/TrialProto.framework/Versions/A/TrialProto
+       com.apple.trial (1.0 - 511.1.2) /System/Library/PrivateFrameworks/Trial.framework/Versions/A/Trial
+       com.apple.CoreNLP (1.0 - 313) /System/Library/PrivateFrameworks/CoreNLP.framework/Versions/A/CoreNLP
+       liblangid.dylib (140) /usr/lib/liblangid.dylib
+       com.apple.AssistantServices (1.0 - 1) /System/Library/PrivateFrameworks/AssistantServices.framework/Versions/A/AssistantServices
+       com.apple.ReflectionInternal (1.0.0 - 5027.1.6) /System/Library/PrivateFrameworks/ReflectionInternal.framework/Versions/A/ReflectionInternal
+       com.apple.RuntimeInternal (1.0.0 - 5027.1.6) /System/Library/PrivateFrameworks/RuntimeInternal.framework/Versions/A/RuntimeInternal
+       libswift_RegexParser.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswift_RegexParser.dylib
+       com.apple.CrashReporterSupport (10.13 - 15146) /System/Library/PrivateFrameworks/CrashReporterSupport.framework/Versions/A/CrashReporterSupport
+       com.apple.CoreServices.OSServices (1141.1 - 1141.1) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/OSServices.framework/Versions/A/OSServices
+       com.apple.datadetectorscore (8.0 - 851) /System/Library/PrivateFrameworks/DataDetectorsCore.framework/Versions/A/DataDetectorsCore
+       com.apple.UIKitServices (1.0 - 9127.1.13.1.411) /System/Library/PrivateFrameworks/UIKitServices.framework/Versions/A/UIKitServices
+       com.apple.DesignLibrary (8.1.13.1.405 - 8.1.13.1.405) /System/Library/PrivateFrameworks/DesignLibrary.framework/Versions/A/DesignLibrary
+       com.apple.biome.BiomePubSub (1.0 - 259) /System/Library/PrivateFrameworks/BiomePubSub.framework/Versions/A/BiomePubSub
+       com.apple.CacheDelete (1.0 - 1) /System/Library/PrivateFrameworks/CacheDelete.framework/Versions/A/CacheDelete
+       com.apple.FileProvider (4838.41.1 - 4838.41.1) /System/Library/Frameworks/FileProvider.framework/Versions/A/FileProvider
+       com.apple.CloudDocs (1.0 - 5168.40.162) /System/Library/PrivateFrameworks/CloudDocs.framework/Versions/A/CloudDocs
+       com.apple.BackBoardServices (1.0 - 1.0) /System/Library/PrivateFrameworks/BackBoardServices.framework/Versions/A/BackBoardServices
+       com.apple.CoreAutoLayout (1.0 - 35) /System/Library/PrivateFrameworks/CoreAutoLayout.framework/Versions/A/CoreAutoLayout
+       libapp_launch_measurement.dylib (17) /usr/lib/libapp_launch_measurement.dylib
+       com.apple.Gestures (9127.1.13.1.411 - 9127.1.13.1.411) /System/Library/PrivateFrameworks/Gestures.framework/Versions/A/Gestures
+       com.apple.Symbols (1.0 - 207) /System/Library/Frameworks/Symbols.framework/Versions/A/Symbols
+       com.apple.RenderBox (8.1.13 - 8.1.13) /System/Library/PrivateFrameworks/RenderBox.framework/Versions/A/RenderBox
+       com.apple.coreservices.SharedFileList (225 - 225) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SharedFileList.framework/Versions/A/SharedFileList
+       com.apple.VideoToolbox (1.0 - 3385.14.5.2) /System/Library/Frameworks/VideoToolbox.framework/Versions/A/VideoToolbox
+       com.apple.CoreML.AppleNeuralEngine (1.0 - 1) /System/Library/PrivateFrameworks/AppleNeuralEngine.framework/Versions/A/AppleNeuralEngine
+       com.apple.UnifiedAssetFramework (1.0 - 1) /System/Library/PrivateFrameworks/UnifiedAssetFramework.framework/Versions/A/UnifiedAssetFramework
+       com.apple.SwiftData (1.0 - 187) /System/Library/Frameworks/SwiftData.framework/Versions/A/SwiftData
+       com.apple.SFSymbolsFramework (1 - 207) /System/Library/PrivateFrameworks/SFSymbols.framework/Versions/A/SFSymbols
+       com.apple.IconFoundation (494 - 494) /System/Library/PrivateFrameworks/IconFoundation.framework/Versions/A/IconFoundation
+       com.apple.IconServices (494 - 494) /System/Library/PrivateFrameworks/IconServices.framework/Versions/A/IconServices
+       libPng.dylib (2851.1.8) /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libPng.dylib
+       com.apple.FramePacing (1.0 - 1) /System/Library/PrivateFrameworks/FramePacing.framework/Versions/A/FramePacing
+       com.apple.CoreImage (27.0.0 - 1667.40.6) /System/Library/Frameworks/CoreImage.framework/Versions/A/CoreImage
+       com.apple.locationsupport (3186.0.22 - 3186.0.22) /System/Library/PrivateFrameworks/LocationSupport.framework/Versions/A/LocationSupport
+       com.apple.CoreServices.FSEvents (1433 - 1433) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/FSEvents.framework/Versions/A/FSEvents
+       libswiftUniformTypeIdentifiers.dylib (917.1.12.406) /usr/lib/swift/libswiftUniformTypeIdentifiers.dylib
+       com.apple.MobileKeyBag (2.0 - 1.0) /System/Library/PrivateFrameworks/MobileKeyBag.framework/Versions/A/MobileKeyBag
+       libsystem_configuration.dylib (1453.40.1) /usr/lib/system/libsystem_configuration.dylib
+       com.apple.SharedWithYouCore (1.0 - 1) /System/Library/Frameworks/SharedWithYouCore.framework/Versions/A/SharedWithYouCore
+       libobjcMsgSend2.dylib (973.1) /usr/lib/objc/libobjcMsgSend2.dylib
+       com.apple.vision.EspressoFramework (1.0 - 3605.3.2) /System/Library/PrivateFrameworks/Espresso.framework/Versions/A/Espresso
+       libBNNS.dylib (2212.41.1) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBNNS.dylib
+       com.apple.CoreWiFi (1.0 - 1042.8) /System/Library/PrivateFrameworks/CoreWiFi.framework/Versions/A/CoreWiFi
+       com.apple.AppleMediaServices (1.0 - 1) /System/Library/PrivateFrameworks/AppleMediaServices.framework/Versions/A/AppleMediaServices
+       libquic.dylib (6681.41.1) /usr/lib/libquic.dylib
+       com.apple.CorePhotogrammetry (3.9.9 - 3.9.9) /System/Library/PrivateFrameworks/CorePhotogrammetry.framework/Versions/A/CorePhotogrammetry
+       com.apple.biome.BiomeDSL (1.0 - 259) /System/Library/PrivateFrameworks/BiomeDSL.framework/Versions/A/BiomeDSL
+       com.apple.CoreDuet (1.0 - 1) /System/Library/PrivateFrameworks/CoreDuet.framework/Versions/A/CoreDuet
+       com.apple.Accessibility (1.0 - 1) /System/Library/Frameworks/Accessibility.framework/Versions/A/Accessibility
+       com.apple.GenerationalStorage (2.0 - 413) /System/Library/PrivateFrameworks/GenerationalStorage.framework/Versions/A/GenerationalStorage
+       libDiagnosticMessagesClient.dylib (113) /usr/lib/libDiagnosticMessagesClient.dylib
+       com.apple.Sharing (2131.21.31.1.3 - 2131.21.31.1.3) /System/Library/PrivateFrameworks/Sharing.framework/Versions/A/Sharing
+       com.apple.UserActivity (551 - 551) /System/Library/PrivateFrameworks/UserActivity.framework/Versions/A/UserActivity
+       com.apple.audio.AudioToolboxCore (1.0 - 1638.213) /System/Library/PrivateFrameworks/AudioToolboxCore.framework/Versions/A/AudioToolboxCore
+       com.apple.MediaToolbox (1.0 - 3385.14.5.2) /System/Library/Frameworks/MediaToolbox.framework/Versions/A/MediaToolbox
+       com.apple.MallocStackLogging (1.0 - 65000) /System/Library/PrivateFrameworks/MallocStackLogging.framework/Versions/A/MallocStackLogging
+       libswiftSystem.dylib (5027.0.67) /usr/lib/swift/libswiftSystem.dylib
+       libswiftRegexBuilder.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswiftRegexBuilder.dylib
+       com.apple.siri.flatbuffer.AppleFlatBuffers (1) /System/Library/PrivateFrameworks/AppleFlatBuffers.framework/Versions/A/AppleFlatBuffers
+       com.apple.InternalSwiftProtobuf (1.0 - 1.26.0) /System/Library/PrivateFrameworks/InternalSwiftProtobuf.framework/Versions/A/InternalSwiftProtobuf
+       com.apple.AVFCapture (1.0 - 764.41.11) /System/Library/PrivateFrameworks/AVFCapture.framework/Versions/A/AVFCapture
+       com.apple.audio.caulk (1.0 - 247) /System/Library/PrivateFrameworks/caulk.framework/Versions/A/caulk
+       com.apple.GeoServicesCore (1.0 - 2076.21.9.18.7) /System/Library/PrivateFrameworks/GeoServicesCore.framework/Versions/A/GeoServicesCore
+       com.apple.CryptoTokenKit (1.0 - 1) /System/Library/Frameworks/CryptoTokenKit.framework/Versions/A/CryptoTokenKit
+       com.apple.LocalAuthentication (1.0 - 2319.40.43) /System/Library/Frameworks/LocalAuthentication.framework/Versions/A/LocalAuthentication
+       com.apple.Rapport (7.1 - 715.2) /System/Library/PrivateFrameworks/Rapport.framework/Versions/A/Rapport
+       com.apple.CoreTime (340.0.14 - 340.0.14) /System/Library/PrivateFrameworks/CoreTime.framework/Versions/A/CoreTime
+       com.apple.CoreEmoji (1.0 - 285.1.2) /System/Library/PrivateFrameworks/CoreEmoji.framework/Versions/A/CoreEmoji
+       libspindump.dylib (453.1) /usr/lib/libspindump.dylib
+       libobjcMsgSend3.dylib (973.1) /usr/lib/objc/libobjcMsgSend3.dylib
+       com.apple.siri.SiriInstrumentation (1.0 - 1) /System/Library/PrivateFrameworks/SiriInstrumentation.framework/Versions/A/SiriInstrumentation
+       libBLAS.dylib (1617.40.9) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libBLAS.dylib
+       com.apple.audio.CoreAudio (5.0 - 5.0) /System/Library/Frameworks/CoreAudio.framework/Versions/A/CoreAudio
+       com.apple.AppleMediaServicesKitInternal (2.1.6 - 2.1.6) /System/Library/PrivateFrameworks/AppleMediaServicesKitInternal.framework/Versions/A/AppleMediaServicesKitInternal
+       com.apple.CoreBluetooth (2701.7.2) /System/Library/Frameworks/CoreBluetooth.framework/Versions/A/CoreBluetooth
+       com.apple.photo.PhotoImaging (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotoImaging.framework/Versions/A/PhotoImaging
+       com.apple.TextInput (1.0 - 1.0) /System/Library/PrivateFrameworks/TextInput.framework/Versions/A/TextInput
+       com.apple.siri.SiriAnalytics (1.0 - 1) /System/Library/PrivateFrameworks/SiriAnalytics.framework/Versions/A/SiriAnalytics
+       com.apple.proactive.AppleIntelligenceReporting (1.0 - 1) /System/Library/PrivateFrameworks/AppleIntelligenceReporting.framework/Versions/A/AppleIntelligenceReporting
+       com.apple.RemoteServiceDiscovery (1.0 - 245.40.9) /System/Library/PrivateFrameworks/RemoteServiceDiscovery.framework/Versions/A/RemoteServiceDiscovery
+       com.apple.SymptomDiagnosticReporter (1.0 - 469.40.3) /System/Library/PrivateFrameworks/SymptomDiagnosticReporter.framework/Versions/A/SymptomDiagnosticReporter
+       com.apple.MultitouchSupport.framework (10410.4 - 10410.4) /System/Library/PrivateFrameworks/MultitouchSupport.framework/Versions/A/MultitouchSupport
+       com.apple.CoreSuggestions (1.0 - 1354) /System/Library/PrivateFrameworks/CoreSuggestions.framework/Versions/A/CoreSuggestions
+       com.apple.CoreTelephony (113 - 13499) /System/Library/Frameworks/CoreTelephony.framework/Versions/A/CoreTelephony
+       com.apple.osanalytics.OSAnalytics (1.0 - 1) /System/Library/PrivateFrameworks/OSAnalytics.framework/Versions/A/OSAnalytics
+       com.apple.RTCReporting (13.1.47 - 190.11) /System/Library/PrivateFrameworks/RTCReporting.framework/Versions/A/RTCReporting
+       com.apple.security.octagontrust (1.0 - 1) /System/Library/PrivateFrameworks/OctagonTrust.framework/Versions/A/OctagonTrust
+       com.apple.IOSurfaceAccelerator (1.0.0 - 1.0.0) /System/Library/PrivateFrameworks/IOSurfaceAccelerator.framework/Versions/A/IOSurfaceAccelerator
+       com.apple.VideoToolboxParavirtualizationSupport (71.0.14 - 71.0.14) /System/Library/PrivateFrameworks/VideoToolboxParavirtualizationSupport.framework/Versions/A/VideoToolboxParavirtualizationSupport
+       com.apple.MediaServices (1.0 - 4026.200.7) /System/Library/PrivateFrameworks/MediaServices.framework/Versions/A/MediaServices
+       com.apple.LinguisticData (1.0 - 483.10) /System/Library/PrivateFrameworks/LinguisticData.framework/Versions/A/LinguisticData
+       libobjcMsgSend4.dylib (973.1) /usr/lib/objc/libobjcMsgSend4.dylib
+       com.apple.GeoServices (1.0 - 2076.21.9.18.7) /System/Library/PrivateFrameworks/GeoServices.framework/Versions/A/GeoServices
+       com.apple.GRDB.GRDBInternal (1.0 - 19) /System/Library/PrivateFrameworks/GRDBInternal.framework/Versions/A/GRDBInternal
+       com.apple.CMPhoto (1.0 - 1) /System/Library/PrivateFrameworks/CMPhoto.framework/Versions/A/CMPhoto
+       com.apple.audio.toolbox.AudioToolbox (1.14 - 1.14) /System/Library/Frameworks/AudioToolbox.framework/Versions/A/AudioToolbox
+       com.apple.MediaRemote (1.0 - 1) /System/Library/PrivateFrameworks/MediaRemote.framework/Versions/A/MediaRemote
+       com.apple.MediaExperience (1.0 - 1) /System/Library/PrivateFrameworks/MediaExperience.framework/Versions/A/MediaExperience
+       com.apple.framework.CoreWLAN (16.0 - 1657) /System/Library/Frameworks/CoreWLAN.framework/Versions/A/CoreWLAN
+       com.apple.ModelManagerServices (1.0 - 1) /System/Library/PrivateFrameworks/ModelManagerServices.framework/Versions/A/ModelManagerServices
+       com.apple.GenerativeFunctions.GenerativeFunctionsInstrumentation (1.0 - 297.12.2.1) /System/Library/PrivateFrameworks/GenerativeFunctionsInstrumentation.framework/Versions/A/GenerativeFunctionsInstrumentation
+       com.apple.NaturalLanguage (1.0 - 114) /System/Library/Frameworks/NaturalLanguage.framework/Versions/A/NaturalLanguage
+       com.apple.EmojiFoundation (1.0 - 1) /System/Library/PrivateFrameworks/EmojiFoundation.framework/Versions/A/EmojiFoundation
+       com.apple.vectordb.VectorSearch (1.0 - 53) /System/Library/PrivateFrameworks/VectorSearch.framework/Versions/A/VectorSearch
+       com.apple.coreduetcontext (1.0 - 1) /System/Library/PrivateFrameworks/CoreDuetContext.framework/Versions/A/CoreDuetContext
+       com.apple.CorePhoneNumbers (1.0 - 1) /System/Library/PrivateFrameworks/CorePhoneNumbers.framework/Versions/A/CorePhoneNumbers
+       com.apple.AAAFoundation (1.0 - 1) /System/Library/PrivateFrameworks/AAAFoundation.framework/Versions/A/AAAFoundation
+       com.apple.security.KeychainCircle.KeychainCircle (1.0 - 1) /System/Library/PrivateFrameworks/KeychainCircle.framework/Versions/A/KeychainCircle
+       libobjcMsgSend5.dylib (973.1) /usr/lib/objc/libobjcMsgSend5.dylib
+       com.apple.facetimeservices (10.0 - 1000) /System/Library/PrivateFrameworks/FTServices.framework/Versions/A/FTServices
+       com.apple.MSUDataAccessor (1.0 - 1) /System/Library/PrivateFrameworks/MSUDataAccessor.framework/Versions/A/MSUDataAccessor
+       com.apple.SoftwareUpdateCoreConnect (1.0 - 1) /System/Library/PrivateFrameworks/SoftwareUpdateCoreConnect.framework/Versions/A/SoftwareUpdateCoreConnect
+       com.apple.ANEServices (10.102 - 10.102) /System/Library/PrivateFrameworks/ANEServices.framework/Versions/A/ANEServices
+       com.apple.Lexicon-framework (1.0 - 219) /System/Library/PrivateFrameworks/Lexicon.framework/Versions/A/Lexicon
+       com.apple.speech.synthesis.framework (9.2.22 - 9.2.22) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/SpeechSynthesis.framework/Versions/A/SpeechSynthesis
+       com.apple.LocalAuthenticationCore (2319.40.43) /System/Library/PrivateFrameworks/LocalAuthenticationCore.framework/Versions/A/LocalAuthenticationCore
+       com.apple.intelligenceflow.ProactiveDaemonSupport (1.0 - 3605.22.500.8) /System/Library/PrivateFrameworks/ProactiveDaemonSupport.framework/Versions/A/ProactiveDaemonSupport
+       com.apple.PhotoLibraryServices (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotoLibraryServices.framework/Versions/A/PhotoLibraryServices
+       com.apple.PhotoLibraryServicesCore (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotoLibraryServicesCore.framework/Versions/A/PhotoLibraryServicesCore
+       com.apple.Photos (1.0 - 916.58.114) /System/Library/Frameworks/Photos.framework/Versions/A/Photos
+       com.apple.AssertionServices (1.0 - 1084.40.7) /System/Library/PrivateFrameworks/AssertionServices.framework/Versions/A/AssertionServices
+       com.apple.SearchFoundation (1.0 - 3605.27.1) /System/Library/PrivateFrameworks/SearchFoundation.framework/Versions/A/SearchFoundation
+       com.apple.SAObjects (1.0 - 1) /System/Library/PrivateFrameworks/SAObjects.framework/Versions/A/SAObjects
+       com.apple.audio.AVFAudio (1.0 - 794.210) /System/Library/Frameworks/AVFAudio.framework/Versions/A/AVFAudio
+       com.apple.AVRouting (1.0 - 1) /System/Library/Frameworks/AVRouting.framework/Versions/A/AVRouting
+       com.apple.AppleJPEG (1.0 - 1) /System/Library/PrivateFrameworks/AppleJPEG.framework/Versions/A/AppleJPEG
+       com.apple.GraphicsServices (1.0 - 1.0) /System/Library/PrivateFrameworks/GraphicsServices.framework/Versions/A/GraphicsServices
+       com.apple.StreamingZip (1.0 - 1) /System/Library/PrivateFrameworks/StreamingZip.framework/Versions/A/StreamingZip
+       com.apple.CoreAuthentication.SharedUtils (1.0 - 2319.40.43) /System/Library/Frameworks/LocalAuthentication.framework/Support/SharedUtils.framework/Versions/A/SharedUtils
+       com.apple.AppleSystemInfo (3.1.5 - 3.1.5) /System/Library/PrivateFrameworks/AppleSystemInfo.framework/Versions/A/AppleSystemInfo
+       com.apple.AppleAccount (1.0 - 1.0) /System/Library/PrivateFrameworks/AppleAccount.framework/Versions/A/AppleAccount
+       com.apple.DiskManagement (15.0 - 1076.40.4) /System/Library/PrivateFrameworks/DiskManagement.framework/Versions/A/DiskManagement
+       com.apple.PhotoFoundation (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotoFoundation.framework/Versions/A/PhotoFoundation
+       com.apple.security.CryptoKit-C-Bridging (1.0 - 1) /System/Library/PrivateFrameworks/CryptoKitCBridging.framework/Versions/A/CryptoKitCBridging
+       com.apple.security.CryptoKit-Private (1.0 - 1) /System/Library/PrivateFrameworks/CryptoKitPrivate.framework/Versions/A/CryptoKitPrivate
+       com.apple.ManagedSettingsObjC (319.40.1 - 319.40.1) /System/Library/PrivateFrameworks/ManagedSettingsObjC.framework/Versions/A/ManagedSettingsObjC
+       com.apple.IOMobileFramebuffer (343.0.0 - 343.0.0) /System/Library/PrivateFrameworks/IOMobileFramebuffer.framework/Versions/A/IOMobileFramebuffer
+       com.apple.MediaAccessibility (1.0 - 153) /System/Library/Frameworks/MediaAccessibility.framework/Versions/A/MediaAccessibility
+       com.apple.SymptomAnalytics (1.0 - 2394.40.17) /System/Library/PrivateFrameworks/Symptoms.framework/Versions/A/Frameworks/SymptomAnalytics.framework/Versions/A/SymptomAnalytics
+       com.apple.LoggingSupport (1.0 - 1966.40.15.0.2) /System/Library/PrivateFrameworks/LoggingSupport.framework/Versions/A/LoggingSupport
+       com.apple.skp.FeedbackLogger (1.0 - 1) /System/Library/PrivateFrameworks/FeedbackLogger.framework/Versions/A/FeedbackLogger
+       liboah.dylib (385) /usr/lib/liboah.dylib
+       com.apple.CoreMediaIO (1000.0 - 5634.41.3.0.1) /System/Library/Frameworks/CoreMediaIO.framework/Versions/A/CoreMediaIO
+       com.apple.DeviceRecovery (1.0 - 1) /System/Library/PrivateFrameworks/DeviceRecovery.framework/Versions/A/DeviceRecovery
+       com.apple.RegulatoryDomainFramework (1.0 - 1) /System/Library/PrivateFrameworks/RegulatoryDomain.framework/Versions/A/RegulatoryDomain
+       com.apple.SpotlightReceiver (1.0 - 2465.1.9.400) /System/Library/PrivateFrameworks/SpotlightReceiver.framework/Versions/A/SpotlightReceiver
+       com.apple.AAAFoundationSwift (1.0 - 1) /System/Library/PrivateFrameworks/AAAFoundationSwift.framework/Versions/A/AAAFoundationSwift
+       com.apple.Heimdal (4.0 - 2.0) /System/Library/PrivateFrameworks/Heimdal.framework/Versions/A/Heimdal
+       com.apple.MetalPerformanceShaders.MPSCore (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSCore.framework/Versions/A/MPSCore
+       libvDSP.dylib (1155) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvDSP.dylib
+       libSessionUtility.dylib (449.205) /System/Library/PrivateFrameworks/AudioSession.framework/libSessionUtility.dylib
+       com.apple.imgaudio.AudioAnalytics (1.0 - 1) /System/Library/PrivateFrameworks/AudioAnalytics.framework/Versions/A/AudioAnalytics
+       com.apple.GenerativeFunctions.PromptKit (1.0 - 297.12.2.1) /System/Library/PrivateFrameworks/PromptKit.framework/Versions/A/PromptKit
+       com.apple.TokenGeneration (1.0 - 1) /System/Library/PrivateFrameworks/TokenGeneration.framework/Versions/A/TokenGeneration
+       com.apple.TokenGenerationCore (1.0 - 1) /System/Library/PrivateFrameworks/TokenGenerationCore.framework/Versions/A/TokenGenerationCore
+       com.apple.IntentsFoundation (1.0 - 1) /System/Library/PrivateFrameworks/IntentsFoundation.framework/Versions/A/IntentsFoundation
+       libTIFF.dylib (2851.1.8) /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libTIFF.dylib
+       com.apple.CollectionViewCore (1.0 - 1) /System/Library/PrivateFrameworks/CollectionViewCore.framework/Versions/A/CollectionViewCore
+       com.apple.SymptomPresentationFeed (1.0 - 2394.40.17) /System/Library/PrivateFrameworks/Symptoms.framework/Versions/A/Frameworks/SymptomPresentationFeed.framework/Versions/A/SymptomPresentationFeed
+       com.apple.DeviceIdentity (1.0 - 1) /System/Library/PrivateFrameworks/DeviceIdentity.framework/Versions/A/DeviceIdentity
+       libsystem_dnssd.dylib (3111.40.45) /usr/lib/system/libsystem_dnssd.dylib
+       libbootpolicy.dylib (304.40.3) /usr/lib/libbootpolicy.dylib
+       com.apple.proactive.support.ProactiveEventTracker (1.0 - 425) /System/Library/PrivateFrameworks/ProactiveEventTracker.framework/Versions/A/ProactiveEventTracker
+       com.apple.MediaAnalysisServices (1.0 - 1) /System/Library/PrivateFrameworks/MediaAnalysisServices.framework/Versions/A/MediaAnalysisServices
+       com.apple.communicationsfilter (10.0 - 1000) /System/Library/PrivateFrameworks/CommunicationsFilter.framework/Versions/A/CommunicationsFilter
+       libIOReport.dylib (116) /usr/lib/libIOReport.dylib
+       libobjcMsgSend6.dylib (973.1) /usr/lib/objc/libobjcMsgSend6.dylib
+       com.apple.Speech (1.0 - 1) /System/Library/Frameworks/Speech.framework/Versions/A/Speech
+       com.apple.CMCapture (1.0 - 764.41.11) /System/Library/PrivateFrameworks/CMCapture.framework/Versions/A/CMCapture
+       com.apple.MediaAnalysis (1.0 - 1) /System/Library/PrivateFrameworks/MediaAnalysis.framework/Versions/A/MediaAnalysis
+       com.apple.CoreSymbolication (64578.104.1) /System/Library/PrivateFrameworks/CoreSymbolication.framework/Versions/A/CoreSymbolication
+       com.apple.securityfoundation (6.0 - 55294.0.2) /System/Library/Frameworks/SecurityFoundation.framework/Versions/A/SecurityFoundation
+       com.apple.WiFiPeerToPeer (877.7.0 - 877.7) /System/Library/PrivateFrameworks/WiFiPeerToPeer.framework/Versions/A/WiFiPeerToPeer
+       libarchive.2.dylib (182.40.6) /usr/lib/libarchive.2.dylib
+       libquarantine.dylib (217.40.5) /usr/lib/system/libquarantine.dylib
+       com.apple.AggregateDictionary (1.0 - 1) /System/Library/PrivateFrameworks/AggregateDictionary.framework/Versions/A/AggregateDictionary
+       com.apple.FrontBoard (1153.2.2 - 1153.2.2) /System/Library/PrivateFrameworks/FrontBoard.framework/Versions/A/FrontBoard
+       com.apple.coreservices.BackgroundTaskManagement (1.0 - 104) /System/Library/PrivateFrameworks/BackgroundTaskManagement.framework/Versions/A/BackgroundTaskManagement
+       com.apple.xpc.AppServerSupport (1.0 - 3298.40.28) /System/Library/PrivateFrameworks/AppServerSupport.framework/Versions/A/AppServerSupport
+       com.apple.audio.AudioSession (1.0 - 449.205) /System/Library/PrivateFrameworks/AudioSession.framework/Versions/A/AudioSession
+       com.apple.MetalPerformanceShaders.MPSNeuralNetwork (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNeuralNetwork.framework/Versions/A/MPSNeuralNetwork
+       com.apple.VN (10.1.7 - 10.1.7) /System/Library/Frameworks/Vision.framework/Versions/A/Vision
+       com.apple.InternationalTextSearch (1.0 - 1) /System/Library/PrivateFrameworks/InternationalTextSearch.framework/Versions/A/InternationalTextSearch
+       com.apple.AsyncAlgorithmsInternal (1.0.0 - 5027.1.6) /System/Library/PrivateFrameworks/AsyncAlgorithmsInternal.framework/Versions/A/AsyncAlgorithmsInternal
+       libcopyfile.dylib (260.40.4) /usr/lib/system/libcopyfile.dylib
+       com.apple.PushKit (1.0 - 1) /System/Library/Frameworks/PushKit.framework/Versions/A/PushKit
+       libobjcMsgSend7.dylib (973.1) /usr/lib/objc/libobjcMsgSend7.dylib
+       com.apple.LanguageModeling (1.0 - 449.3) /System/Library/PrivateFrameworks/LanguageModeling.framework/Versions/A/LanguageModeling
+       com.apple.TextRecognition (1.0 - 157) /System/Library/PrivateFrameworks/TextRecognition.framework/Versions/A/TextRecognition
+       com.apple.VisionCore (10.1.7 - 10.1.7) /System/Library/PrivateFrameworks/VisionCore.framework/Versions/A/VisionCore
+       libperfcheck.dylib (46.40.2) /usr/lib/libperfcheck.dylib
+       com.apple.PegasusAPI (1.0 - 3605.27.1) /System/Library/PrivateFrameworks/PegasusAPI.framework/Versions/A/PegasusAPI
+       com.apple.PegasusConfiguration (1.0 - 15000) /System/Library/PrivateFrameworks/PegasusConfiguration.framework/Versions/A/PegasusConfiguration
+       com.apple.desktopservices (27.2 - 1857.1.9.100) /System/Library/PrivateFrameworks/DesktopServicesPriv.framework/Versions/A/DesktopServicesPriv
+       libswiftDistributed.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswiftDistributed.dylib
+       com.apple.iTunesCloud (1.0 - 4026.240.1) /System/Library/PrivateFrameworks/iTunesCloud.framework/Versions/A/iTunesCloud
+       com.apple.SymptomShared (2394.40.17) /System/Library/PrivateFrameworks/SymptomShared.framework/Versions/A/SymptomShared
+       libAudioStatistics.dylib (300.205) /usr/lib/libAudioStatistics.dylib
+       com.apple.MetalPerformanceShaders.MPSImage (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSImage.framework/Versions/A/MPSImage
+       com.apple.MessageSecurity (1.0 - 341.40.12) /System/Library/PrivateFrameworks/MessageSecurity.framework/Versions/A/MessageSecurity
+       com.apple.xpc.RemoteXPC (1.0 - 3298.40.28) /System/Library/PrivateFrameworks/RemoteXPC.framework/Versions/A/RemoteXPC
+       com.apple.ArgumentParserInternal (1.0 - 1.20.2) /System/Library/PrivateFrameworks/ArgumentParserInternal.framework/Versions/A/ArgumentParserInternal
+       com.apple.crossdevicearbitration (1.0 - 1) /System/Library/PrivateFrameworks/SiriCrossDeviceArbitration.framework/Versions/A/SiriCrossDeviceArbitration
+       com.apple.aiml.dendrite.Dendrite (1.0 - 1) /System/Library/PrivateFrameworks/Dendrite.framework/Versions/A/Dendrite
+       libRosetta.dylib (385) /usr/lib/libRosetta.dylib
+       com.apple.Bluetooth (1.0 - 1) /System/Library/Frameworks/IOBluetooth.framework/Versions/A/IOBluetooth
+       com.apple.IO80211 (1.0 - 1) /System/Library/PrivateFrameworks/IO80211.framework/Versions/A/IO80211
+       com.apple.NetFS (6.0 - 4.0) /System/Library/Frameworks/NetFS.framework/Versions/A/NetFS
+       com.apple.performance.DiagnosticRequest (1.4 - 4) /System/Library/PrivateFrameworks/DiagnosticRequest.framework/Versions/A/DiagnosticRequest
+       com.apple.HID (1.0 - 1) /System/Library/PrivateFrameworks/HID.framework/Versions/A/HID
+       com.apple.private.EmbeddedAcousticRecognition (1.0 - 3605.9.1) /System/Library/PrivateFrameworks/EmbeddedAcousticRecognition.framework/Versions/A/EmbeddedAcousticRecognition
+       com.apple.siri.parsec.CoreParsec (1.0 - 3605.27.1) /System/Library/PrivateFrameworks/CoreParsec.framework/Versions/A/CoreParsec
+       com.apple.biome.BiomeSync (1.0 - 259) /System/Library/PrivateFrameworks/BiomeSync.framework/Versions/A/BiomeSync
+       com.apple.private.SystemPolicy (1.0 - 1) /System/Library/PrivateFrameworks/SystemPolicy.framework/Versions/A/SystemPolicy
+       com.apple.PoirotUDFs (1.0 - 1) /System/Library/PrivateFrameworks/PoirotUDFs.framework/Versions/A/PoirotUDFs
+       com.apple.URLFormatting (317 - 317) /System/Library/PrivateFrameworks/URLFormatting.framework/Versions/A/URLFormatting
+       com.apple.UIUtilities (9127.1.13.1.411) /System/Library/SubFrameworks/UIUtilities.framework/Versions/A/UIUtilities
+       com.apple.PrototypeTools (1.0 - 1) /System/Library/PrivateFrameworks/PrototypeTools.framework/Versions/A/PrototypeTools
+       com.apple.ClassKit (1.2 - 152.1.1) /System/Library/Frameworks/ClassKit.framework/Versions/A/ClassKit
+       libobjcMsgSend8.dylib (973.1) /usr/lib/objc/libobjcMsgSend8.dylib
+       com.apple.PhotosFormats (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotosFormats.framework/Versions/A/PhotosFormats
+       libFDR.dylib (1636.40.11) /usr/lib/libFDR.dylib
+       libswiftNaturalLanguage.dylib (4.3) /usr/lib/swift/libswiftNaturalLanguage.dylib
+       com.apple.InstalledContentLibrary (1.0 - 1.0) /System/Library/PrivateFrameworks/InstalledContentLibrary.framework/Versions/A/InstalledContentLibrary
+       com.apple.AssetCacheServices (157.40.2 - 157.40.2) /System/Library/PrivateFrameworks/AssetCacheServices.framework/Versions/A/AssetCacheServices
+       com.apple.ManagedOrganizationContacts (1.2 - 152.1.1) /System/Library/PrivateFrameworks/ManagedOrganizationContacts.framework/Versions/A/ManagedOrganizationContacts
+       com.apple.DifferentialPrivacy (1.0 - 1) /System/Library/PrivateFrameworks/DifferentialPrivacy.framework/Versions/A/DifferentialPrivacy
+       com.apple.CoreMaterial (1.0 - 1) /System/Library/PrivateFrameworks/CoreMaterial.framework/Versions/A/CoreMaterial
+       libAXSafeCategoryBundle.dylib (3245.8.6.2) /usr/lib/libAXSafeCategoryBundle.dylib
+       com.apple.ToneLibrary (1.0 - 1) /System/Library/PrivateFrameworks/ToneLibrary.framework/Versions/A/ToneLibrary
+       com.apple.WatchdogClient.framework (1.0 - 334.40.4) /System/Library/PrivateFrameworks/WatchdogClient.framework/Versions/A/WatchdogClient
+       com.apple.print.framework.PrintCore (19 - 610.1) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/PrintCore
+       com.apple.PoirotSchematizer (1.0 - 1) /System/Library/PrivateFrameworks/PoirotSchematizer.framework/Versions/A/PoirotSchematizer
+       com.apple.accessibility.PhotosensitivityProcessing (1.0 - 1) /System/Library/PrivateFrameworks/PhotosensitivityProcessing.framework/Versions/A/PhotosensitivityProcessing
+       com.apple.GenerativeFunctions.GenerativeFunctions (1.0 - 297.12.2.1) /System/Library/PrivateFrameworks/GenerativeFunctions.framework/Versions/A/GenerativeFunctions
+       com.apple.SensitiveContentAnalysisML (1) /System/Library/PrivateFrameworks/SensitiveContentAnalysisML.framework/Versions/A/SensitiveContentAnalysisML
+       libGFXShared.dylib (24.0.2) /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGFXShared.dylib
+       com.apple.opengl (24.0.2 - 24.0.2) /System/Library/Frameworks/OpenGL.framework/Versions/A/OpenGL
+       libGL.dylib (24.0.2) /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGL.dylib
+       libCoreVMClient.dylib (405) /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreVMClient.dylib
+       libCVMSPluginSupport.dylib (24.0.2) /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCVMSPluginSupport.dylib
+       com.apple.IOAccelMemoryInfo (1.0 - 1) /System/Library/PrivateFrameworks/IOAccelMemoryInfo.framework/Versions/A/IOAccelMemoryInfo
+       com.apple.audio.midi.CoreMIDI (2.0 - 88) /System/Library/Frameworks/CoreMIDI.framework/Versions/A/CoreMIDI
+       libswiftCoreMedia.dylib (3385.14.5.2) /usr/lib/swift/libswiftCoreMedia.dylib
+       com.apple.CloudPhotoLibrary (1.0 - 916.58.114) /System/Library/PrivateFrameworks/CloudPhotoLibrary.framework/Versions/A/CloudPhotoLibrary
+       com.apple.ImageCaptureDevices (2118.1 - 2118.1) /System/Library/PrivateFrameworks/ImageCaptureDevices.framework/Versions/A/ImageCaptureDevices
+       com.apple.MetalPerformanceShaders.MetalPerformanceShaders (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/MetalPerformanceShaders
+       libgermantok.dylib (31) /usr/lib/libgermantok.dylib
+       libtailspin.dylib (268) /usr/lib/libtailspin.dylib
+       com.apple.Symbolication (64578.132.1) /System/Library/PrivateFrameworks/Symbolication.framework/Versions/A/Symbolication
+       libswiftAccelerate.dylib (82) /usr/lib/swift/libswiftAccelerate.dylib
+       com.apple.CloudTelemetry (1.0 - 2722.40.2) /System/Library/PrivateFrameworks/CloudTelemetry.framework/Versions/A/CloudTelemetry
+       com.apple.persistentconnection (1.0 - 1.0) /System/Library/PrivateFrameworks/PersistentConnection.framework/Versions/A/PersistentConnection
+       com.apple.siri.SiriTTSService (1.0 - 1) /System/Library/PrivateFrameworks/SiriTTSService.framework/Versions/A/SiriTTSService
+       com.apple.internal.SwiftSQLite (1.0 - 106.21.6.16.7) /System/Library/PrivateFrameworks/SwiftSQLite.framework/Versions/A/SwiftSQLite
+       libpam.2.dylib (35) /usr/lib/libpam.2.dylib
+       com.apple.security.SwiftASN1Internal (1.0 - 1) /System/Library/PrivateFrameworks/SwiftASN1Internal.framework/Versions/A/SwiftASN1Internal
+       libTLE.dylib (94) /usr/lib/libTLE.dylib
+       com.apple.coremotion (3186.0.22 - 3186.0.22) /System/Library/Frameworks/CoreMotion.framework/Versions/A/CoreMotion
+       com.apple.FeatureFlagsSupport (1.0 - 111) /System/Library/PrivateFrameworks/FeatureFlagsSupport.framework/Versions/A/FeatureFlagsSupport
+       com.apple.cocoa.IconRendering (1.0 - 120) /System/Library/PrivateFrameworks/IconRendering.framework/Versions/A/IconRendering
+       com.apple.NLP (1.0 - 233) /System/Library/PrivateFrameworks/NLP.framework/Versions/A/NLP
+       libswiftAVFoundation.dylib (2475.13.5.1) /usr/lib/swift/libswiftAVFoundation.dylib
+       libobjcMsgSend9.dylib (973.1) /usr/lib/objc/libobjcMsgSend9.dylib
+       com.apple.CloudServices (1.0 - 747.40.9) /System/Library/PrivateFrameworks/CloudServices.framework/Versions/A/CloudServices
+       com.apple.accessibility.AXMediaUtilities (1.0 - 1) /System/Library/PrivateFrameworks/AXMediaUtilities.framework/Versions/A/AXMediaUtilities
+       libate.dylib (3.0.11) /usr/lib/libate.dylib
+       libobjcMsgSend10.dylib (973.1) /usr/lib/objc/libobjcMsgSend10.dylib
+       com.apple.crossdevicearbitration.feedback (1.0 - 1) /System/Library/PrivateFrameworks/SiriCrossDeviceArbitrationFeedback.framework/Versions/A/SiriCrossDeviceArbitrationFeedback
+       com.apple.AFKUser (1) /System/Library/PrivateFrameworks/AFKUser.framework/Versions/A/AFKUser
+       com.apple.SILManager (68.8.4 - 68.8.4) /System/Library/PrivateFrameworks/SILManager.framework/Versions/A/SILManager
+       com.apple.ProDisplayLibrary (11.1.2 - 11.1.2) /System/Library/PrivateFrameworks/ProDisplayLibrary.framework/Versions/A/ProDisplayLibrary
+       com.apple.BackBoardHIDEventFoundation (1.0 - 1) /System/Library/PrivateFrameworks/BackBoardHIDEventFoundation.framework/Versions/A/BackBoardHIDEventFoundation
+       libamsupport.dylib (475.40.7) /usr/lib/libamsupport.dylib
+       com.apple.siri.AIMLExperimentationAnalytics (1.0 - 1) /System/Library/PrivateFrameworks/AIMLExperimentationAnalytics.framework/Versions/A/AIMLExperimentationAnalytics
+       libswift_DarwinFoundation1.dylib (428.40.1) /usr/lib/swift/libswift_DarwinFoundation1.dylib
+       com.apple.IsolatedContextLogging (1.0 - 1) /System/Library/PrivateFrameworks/IsolatedContextLogging.framework/Versions/A/IsolatedContextLogging
+       com.apple.APFS (3288.41.1 - 3288.41.1) /System/Library/PrivateFrameworks/APFS.framework/Versions/A/APFS
+       com.apple.LightweightCodeRequirements (1.0 - 1) /System/Library/Frameworks/LightweightCodeRequirements.framework/Versions/A/LightweightCodeRequirements
+       libswiftCompression.dylib (18) /usr/lib/swift/libswiftCompression.dylib
+       libmis.dylib (487.0.2) /usr/lib/libmis.dylib
+       libcrypto.46.dylib (111.41.2) /usr/lib/libcrypto.46.dylib
+       libpartition2_dynamic.dylib (3696.40.14.0.1) /usr/lib/libpartition2_dynamic.dylib
+       com.apple.MusicKit (1.0 - 1) /System/Library/Frameworks/MusicKit.framework/Versions/A/MusicKit
+       libcoretls.dylib (189.40.2) /usr/lib/libcoretls.dylib
+       com.apple.AppleIDSSOAuthentication (1.0 - 1) /System/Library/PrivateFrameworks/AppleIDSSOAuthentication.framework/Versions/A/AppleIDSSOAuthentication
+       com.apple.JetPack (1.0 - 1) /System/Library/PrivateFrameworks/JetPack.framework/Versions/A/JetPack
+       com.apple.internal.XPCDistributed (1.0 - 1) /System/Library/PrivateFrameworks/XPCDistributed.framework/Versions/A/XPCDistributed
+       com.apple.MobileBluetooth (1.0 - 1.0) /System/Library/PrivateFrameworks/MobileBluetooth.framework/Versions/A/MobileBluetooth
+       libobjcMsgSend11.dylib (973.1) /usr/lib/objc/libobjcMsgSend11.dylib
+       com.apple.VisualUnderstanding (1.0 - 1) /System/Library/PrivateFrameworks/VisualUnderstanding.framework/Versions/A/VisualUnderstanding
+       com.apple.GenerativeFunctions.GenerativeAgents (1.0 - 297.12.2.1) /System/Library/PrivateFrameworks/GenerativeAgents.framework/Versions/A/GenerativeAgents
+       com.apple.SoundAnalysis (1.0 - 1) /System/Library/Frameworks/SoundAnalysis.framework/Versions/A/SoundAnalysis
+       com.apple.CMImaging (1.0 - 764.41.11) /System/Library/PrivateFrameworks/CMImaging.framework/Versions/A/CMImaging
+       com.apple.PhotosIntelligence (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotosIntelligence.framework/Versions/A/PhotosIntelligence
+       com.apple.CVNLP (1.0 - 119) /System/Library/PrivateFrameworks/CVNLP.framework/Versions/A/CVNLP
+       libswiftQuartzCore.dylib (5) /usr/lib/swift/libswiftQuartzCore.dylib
+       libcups.2.dylib (532) /usr/lib/libcups.2.dylib
+       com.apple.internal.LocalStatusKit (1.0 - 154.200.21) /System/Library/PrivateFrameworks/LocalStatusKit.framework/Versions/A/LocalStatusKit
+       com.apple.SampleAnalysis (1.0 - 441) /System/Library/PrivateFrameworks/SampleAnalysis.framework/Versions/A/SampleAnalysis
+       libxar.1.dylib (516.40.4) /usr/lib/libxar.1.dylib
+       com.apple.PegasusKit (1.0 - 3605.27.1) /System/Library/PrivateFrameworks/PegasusKit.framework/Versions/A/PegasusKit
+       com.apple.GRPCCoreInternal (2.0.0 - 1) /System/Library/PrivateFrameworks/GRPCCoreInternal.framework/Versions/A/GRPCCoreInternal
+       com.apple.GRPCSwiftURLSessionTransportInternal (1.3.4 - 1) /System/Library/PrivateFrameworks/GRPCURLSessionTransportInternal.framework/Versions/A/GRPCURLSessionTransportInternal
+       com.apple.siri.tts.SiriTTS (1 - 1) /System/Library/PrivateFrameworks/SiriTTS.framework/Versions/A/SiriTTS
+       libbsm.0.dylib (91.40.2) /usr/lib/libbsm.0.dylib
+       libutil.dylib (78) /usr/lib/libutil.dylib
+       com.apple.BiometricKit (1.0 - 578.40.7) /System/Library/PrivateFrameworks/BiometricKit.framework/Versions/A/BiometricKit
+       com.apple.ChunkingLibrary (2700.1 - 2700.1) /System/Library/PrivateFrameworks/ChunkingLibrary.framework/Versions/A/ChunkingLibrary
+       com.apple.VisualLookUp (0.1 - 1) /System/Library/PrivateFrameworks/VisualLookUp.framework/Versions/A/VisualLookUp
+       com.apple.AppleDeviceQuerySupport (1.0 - 459.40.2) /System/Library/PrivateFrameworks/AppleDeviceQuerySupport.framework/Versions/A/AppleDeviceQuerySupport
+       com.apple.tightbeam (1.0 - 631.40.4) /System/Library/PrivateFrameworks/Tightbeam.framework/Versions/A/Tightbeam
+       libswiftCoreMIDI.dylib (6) /usr/lib/swift/libswiftCoreMIDI.dylib
+       libswiftCoreAudio.dylib (482.208) /usr/lib/swift/libswiftCoreAudio.dylib
+       com.apple.PoirotSQLite (1.0 - 1) /System/Library/PrivateFrameworks/PoirotSQLite.framework/Versions/A/PoirotSQLite
+       libhvf.dylib (14) /usr/lib/libhvf.dylib
+       com.apple.Coherence (1.0 - 1) /System/Library/PrivateFrameworks/Coherence.framework/Versions/A/Coherence
+       libobjcMsgSend12.dylib (973.1) /usr/lib/objc/libobjcMsgSend12.dylib
+       com.apple.MusicKit.Internal (1.0 - 1) /System/Library/PrivateFrameworks/MusicKitInternal.framework/Versions/A/MusicKitInternal
+       com.apple.cloudkit.C2 (1.3 - 2700.112) /System/Library/PrivateFrameworks/C2.framework/Versions/A/C2
+       com.apple.ShazamKit (1.0.0 - 427.2.6) /System/Library/Frameworks/ShazamKit.framework/Versions/A/ShazamKit
+       com.apple.DictionaryServices (1.2 - 383.8) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/DictionaryServices.framework/Versions/A/DictionaryServices
+       com.apple.HDRProcessing (1.521.50 - 1.521.50) /System/Library/PrivateFrameworks/HDRProcessing.framework/Versions/A/HDRProcessing
+       com.apple.i18n.RecencyService (1.0 - 1) /System/Library/PrivateFrameworks/Stickers.framework/Support/RecencyService.framework/Versions/A/RecencyService
+       com.apple.stickers (1.0 - 1) /System/Library/PrivateFrameworks/Stickers.framework/Versions/A/Stickers
+       com.apple.VisualGeneration (1.0 - 144) /System/Library/PrivateFrameworks/VisualGeneration.framework/Versions/A/VisualGeneration
+       libobjcMsgSend13.dylib (973.1) /usr/lib/objc/libobjcMsgSend13.dylib
+       com.apple.TextUnderstanding.TextUnderstanding (1.0 - 192.1) /System/Library/PrivateFrameworks/TextUnderstanding.framework/Versions/A/TextUnderstanding
+       com.apple.TextUnderstanding.TextUnderstandingFoundation (1.0 - 192.1) /System/Library/PrivateFrameworks/TextUnderstandingFoundation.framework/Versions/A/TextUnderstandingFoundation
+       com.apple.WritingTools (1.0 - 1) /System/Library/PrivateFrameworks/WritingTools.framework/Versions/A/WritingTools
+       com.apple.signpost.SignpostSupport (1.205 - 205) /System/Library/PrivateFrameworks/SignpostSupport.framework/Versions/A/SignpostSupport
+       com.apple.CoreTransferable (1.0.1 - 1) /System/Library/Frameworks/CoreTransferable.framework/Versions/A/CoreTransferable
+       com.apple.ImageCaptureCore (2118.1 - 2118.1) /System/Library/Frameworks/ImageCaptureCore.framework/Versions/A/ImageCaptureCore
+       com.apple.CPAnalytics (1.0 - 916.58.114) /System/Library/PrivateFrameworks/CPAnalytics.framework/Versions/A/CPAnalytics
+       libswiftDarwin.dylib (428.40.1) /usr/lib/swift/libswiftDarwin.dylib
+       libCoreStorage.dylib (572.40.2.0.1) /usr/lib/libCoreStorage.dylib
+       com.apple.GRPCProtobufInternal (2.0.0 - 1) /System/Library/PrivateFrameworks/GRPCProtobufInternal.framework/Versions/A/GRPCProtobufInternal
+       com.apple.portrait.Portrait (1.0 - 18) /System/Library/PrivateFrameworks/Portrait.framework/Versions/A/Portrait
+       com.apple.ANSTKit (45 - 45) /System/Library/PrivateFrameworks/ANSTKit.framework/Versions/A/ANSTKit
+       com.apple.accessibility.AXAssetLoader (1.0 - 1) /System/Library/PrivateFrameworks/AXAssetLoader.framework/Versions/A/AXAssetLoader
+       com.apple.CipherML (1.0 - 1) /System/Library/PrivateFrameworks/CipherML.framework/Versions/A/CipherML
+       com.apple.cloudkit.MMCS (1.3 - 2700.112) /System/Library/PrivateFrameworks/MMCS.framework/Versions/A/MMCS
+       com.apple.cloudkit.CloudCoreInternal (18.20) /System/Library/PrivateFrameworks/CloudCoreInternal.framework/Versions/A/CloudCoreInternal
+       com.apple.SDAPI (1.0 - 1) /System/Library/PrivateFrameworks/SDAPI.framework/Versions/A/SDAPI
+       com.apple.siri.SiriPowerInstrumentation (1 - 1.0) /System/Library/PrivateFrameworks/SiriPowerInstrumentation.framework/Versions/A/SiriPowerInstrumentation
+       com.apple.DataFrame (1.0 - 55.40.2) /System/Library/Frameworks/TabularData.framework/Versions/A/TabularData
+       com.apple.TextureIO (3.10.12 - 3.10.12) /System/Library/PrivateFrameworks/TextureIO.framework/Versions/A/TextureIO
+       com.apple.AlgorithmsInternal (1.2 - 5027.1.6) /System/Library/PrivateFrameworks/AlgorithmsInternal.framework/Versions/A/AlgorithmsInternal
+       com.apple.mediastream (1.0 - 916.58.114) /System/Library/PrivateFrameworks/MediaStream.framework/Versions/A/MediaStream
+       libobjcMsgSend14.dylib (973.1) /usr/lib/objc/libobjcMsgSend14.dylib
+       com.apple.CoreMediaStream (1.0 - 916.58.114) /System/Library/PrivateFrameworks/CoreMediaStream.framework/Versions/A/CoreMediaStream
+       com.apple.HIDDisplay (1.0 - 1) /System/Library/PrivateFrameworks/HIDDisplay.framework/Versions/A/HIDDisplay
+       com.apple.MetalPerformanceShaders.MPSRayIntersector (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSRayIntersector.framework/Versions/A/MPSRayIntersector
+       libLinearAlgebra.dylib (1617.40.9) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLinearAlgebra.dylib
+       com.apple.private.AppleMobileFileIntegrity-fmk (1.0 - 1) /System/Library/PrivateFrameworks/AppleMobileFileIntegrity.framework/Versions/A/AppleMobileFileIntegrity
+       com.apple.perfdata (1.0 - 135.40.4) /System/Library/PrivateFrameworks/perfdata.framework/Versions/A/perfdata
+       com.apple.MobileSystemServices (1.0 - 1) /System/Library/PrivateFrameworks/MobileSystemServices.framework/Versions/A/MobileSystemServices
+       com.apple.ASEProcessing (1.59.0 - 1.59.0) /System/Library/PrivateFrameworks/ASEProcessing.framework/Versions/A/ASEProcessing
+       libReverseProxyDevice.dylib (114.40.2) /usr/lib/libReverseProxyDevice.dylib
+       com.apple.MetalPerformanceShaders.MPSNDArray (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSNDArray.framework/Versions/A/MPSNDArray
+       com.apple.MPSHost (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSHost.framework/Versions/A/MPSHost
+       com.apple.gpusw.MetalTools (1.0 - 1) /System/Library/PrivateFrameworks/MetalTools.framework/Versions/A/MetalTools
+       com.apple.OSLog (1.0 - 1966.40.15.0.2) /System/Library/Frameworks/OSLog.framework/Versions/A/OSLog
+       com.apple.Osprey (1.0 - 1) /System/Library/PrivateFrameworks/Osprey.framework/Versions/A/Osprey
+       com.apple.PhotosIntelligenceCore (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotosIntelligenceCore.framework/Versions/A/PhotosIntelligenceCore
+       com.apple.CoreUtilsSwift (1.0 - 1) /System/Library/PrivateFrameworks/CoreUtilsSwift.framework/Versions/A/CoreUtilsSwift
+       com.apple.kperf (1.0 - 1) /System/Library/PrivateFrameworks/kperf.framework/Versions/A/kperf
+       com.apple.DocumentUnderstandingClient (192.1 - 192.1) /System/Library/PrivateFrameworks/DocumentUnderstandingClient.framework/Versions/A/DocumentUnderstandingClient
+       libresolv.9.dylib (99) /usr/lib/libresolv.9.dylib
+       libobjcMsgSend15.dylib (973.1) /usr/lib/objc/libobjcMsgSend15.dylib
+       com.apple.private.FaceTimeNameUtility (1.0 - 1) /System/Library/PrivateFrameworks/FaceTimeNameUtility.framework/Versions/A/FaceTimeNameUtility
+       libllvm-flatbuffers.dylib (32023.922.4) /System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libllvm-flatbuffers.dylib
+       libobjcMsgSend16.dylib (973.1) /usr/lib/objc/libobjcMsgSend16.dylib
+       com.apple.contacts.vCard (1.0 - 3846.200.91.1.2) /System/Library/PrivateFrameworks/vCard.framework/Versions/A/vCard
+       libswiftCoreLocation.dylib (57) /usr/lib/swift/libswiftCoreLocation.dylib
+       com.apple.SonicFoundation (1.0 - 26240.26.40.301) /System/Library/PrivateFrameworks/SonicFoundation.framework/Versions/A/SonicFoundation
+       libGLImage.dylib (24.0.2) /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLImage.dylib
+       com.apple.PhotosImagingFoundation (12.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotosImagingFoundation.framework/Versions/A/PhotosImagingFoundation
+       com.apple.photo.NeutrinoCore (1.0 - 916.58.114) /System/Library/PrivateFrameworks/NeutrinoCore.framework/Versions/A/NeutrinoCore
+       com.apple.photo.MediaConversionService (12.0 - 916.58.114) /System/Library/PrivateFrameworks/MediaConversionService.framework/Versions/A/MediaConversionService
+       libxslt.1.dylib (22) /usr/lib/libxslt.1.dylib
+       libobjcMsgSend17.dylib (973.1) /usr/lib/objc/libobjcMsgSend17.dylib
+       com.apple.QD (4.0 - 451) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/QD.framework/Versions/A/QD
+       libCTGreenTeaLogger.dylib (13499) /usr/lib/libCTGreenTeaLogger.dylib
+       com.apple.CaptiveNetworkSupport (13.0 - 1) /System/Library/PrivateFrameworks/CaptiveNetwork.framework/Versions/A/CaptiveNetwork
+       com.apple.Kerberos (3.0 - 1) /System/Library/Frameworks/Kerberos.framework/Versions/A/Kerberos
+       com.apple.SpatialConnect (27.2 - 7.0.1) /System/Library/PrivateFrameworks/SpatialConnect.framework/Versions/A/SpatialConnect
+       com.apple.accounts.AccountsDaemon (113 - 113) /System/Library/PrivateFrameworks/AccountsDaemon.framework/Versions/A/AccountsDaemon
+       com.apple.AppleIDAuthSupport (1.0 - 1) /System/Library/PrivateFrameworks/AppleIDAuthSupport.framework/Versions/A/AppleIDAuthSupport
+       com.apple.DAAPKit (1.0 - 4026.200.13) /System/Library/PrivateFrameworks/DAAPKit.framework/Versions/A/DAAPKit
+       com.apple.audio.IOKitten (300.1 - 300.1) /System/Library/PrivateFrameworks/IOKitten.framework/Versions/A/IOKitten
+       libAudioDSPCore.dylib (881.210.10.1) /usr/lib/libAudioDSPCore.dylib
+       libobjcMsgSend18.dylib (973.1) /usr/lib/objc/libobjcMsgSend18.dylib
+       com.apple.AppleDepth (177.0 - 177.0) /System/Library/PrivateFrameworks/AppleDepth.framework/Versions/A/AppleDepth
+       com.apple.AppleDepthCore (177.0 - 177.0) /System/Library/PrivateFrameworks/AppleDepthCore.framework/Versions/A/AppleDepthCore
+       com.apple.FusionTracker (1.0 - 1) /System/Library/PrivateFrameworks/FusionTracker.framework/Versions/A/FusionTracker
+       libSparseBLAS.dylib (196.0.1) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparseBLAS.dylib
+       libiconv.2.dylib (123) /usr/lib/libiconv.2.dylib
+       com.apple.CloudPhotoServices (1.0 - 916.58.114) /System/Library/PrivateFrameworks/CloudPhotoServices.framework/Versions/A/CloudPhotoServices
+       com.apple.TimeSync (1.0 - 1510.9) /System/Library/PrivateFrameworks/TimeSync.framework/Versions/A/TimeSync
+       com.apple.SearchKit (1.4.2 - 1.4.2) /System/Library/Frameworks/CoreServices.framework/Versions/A/Frameworks/SearchKit.framework/Versions/A/SearchKit
+       com.apple.Engram (1.0 - 1) /System/Library/PrivateFrameworks/Engram.framework/Versions/A/Engram
+       com.apple.CoreLocation.LocationLogEncryption (3186.0.22) /System/Library/PrivateFrameworks/LocationLogEncryption.framework/Versions/A/LocationLogEncryption
+       libobjcMsgSend19.dylib (973.1) /usr/lib/objc/libobjcMsgSend19.dylib
+       libAppleArchive.dylib (469.40.4) /usr/lib/libAppleArchive.dylib
+       com.apple.multiverse (1.0 - 120) /System/Library/PrivateFrameworks/MultiverseSupport.framework/Versions/A/MultiverseSupport
+       libncurses.5.4.dylib (85) /usr/lib/libncurses.5.4.dylib
+       com.apple.performance.SignpostCollection (1.205 - 205) /System/Library/PrivateFrameworks/SignpostCollection.framework/Versions/A/SignpostCollection
+       com.apple.ShazamCore (1.0.0 - 427.2.6) /System/Library/PrivateFrameworks/ShazamCore.framework/Versions/A/ShazamCore
+       com.apple.libktrace (1.0 - 706.40.6) /System/Library/PrivateFrameworks/ktrace.framework/Versions/A/ktrace
+       com.apple.GSS (4.0 - 2.0) /System/Library/Frameworks/GSS.framework/Versions/A/GSS
+       com.apple.MediaKit (16 - 944) /System/Library/PrivateFrameworks/MediaKit.framework/Versions/A/MediaKit
+       com.apple.EFILogin (2.0 - 2) /System/Library/PrivateFrameworks/EFILogin.framework/Versions/A/EFILogin
+       com.apple.IPConfiguration (1.21 - 1.21) /System/Library/PrivateFrameworks/IPConfiguration.framework/Versions/A/IPConfiguration
+       com.apple.OTSVG (1.0 - 910) /System/Library/PrivateFrameworks/OTSVG.framework/Versions/A/OTSVG
+       com.apple.audio.coreaudio.Stravinsky (1.0 - 1) /System/Library/PrivateFrameworks/CoreAudioOrchestration.framework/Versions/A/CoreAudioOrchestration
+       com.apple.gpusw.GPURawCounter (35 - 35) /System/Library/PrivateFrameworks/GPURawCounter.framework/Versions/A/GPURawCounter
+       com.apple.MPSFunctions (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSFunctions.framework/Versions/A/MPSFunctions
+       libssl.48.dylib (111.41.2) /usr/lib/libssl.48.dylib
+       com.apple.MetalPerformanceShaders.MPSMatrix (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSMatrix.framework/Versions/A/MPSMatrix
+       com.apple.audio.CoreAudio.IsolatedCoreAudioClient (1.0 - 1) /System/Library/PrivateFrameworks/IsolatedCoreAudioClient.framework/Versions/A/IsolatedCoreAudioClient
+       com.apple.DiskImagesFramework (710 - 710) /System/Library/PrivateFrameworks/DiskImages.framework/Versions/A/DiskImages
+       com.apple.GraphVisualizer (1.0 - 310) /System/Library/PrivateFrameworks/GraphVisualizer.framework/Versions/A/GraphVisualizer
+       com.apple.MPSBenchmarkLoop (1.0 - 130.1.4) /System/Library/Frameworks/MetalPerformanceShaders.framework/Versions/A/Frameworks/MPSBenchmarkLoop.framework/Versions/A/MPSBenchmarkLoop
+       com.apple.avfoundation (2.0 - 2475.13.5.1) /System/Library/Frameworks/AVFoundation.framework/Versions/A/AVFoundation
+       com.apple.Accelerate (1.11 - Accelerate 1.11) /System/Library/Frameworks/Accelerate.framework/Versions/A/Accelerate
+       libQuadrature.dylib (10) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libQuadrature.dylib
+       libSparse.dylib (196.0.1) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libSparse.dylib
+       libvMisc.dylib (1155) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libvMisc.dylib
+       com.apple.Accelerate.vecLib (3.11 - vecLib 3.11) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/vecLib
+       libobjcMsgSend20.dylib (973.1) /usr/lib/objc/libobjcMsgSend20.dylib
+       com.apple.AGXMetalG15G-C0 (362.5.1 - 362.5.1) /System/Library/Extensions/AGXMetalG15G_C0.bundle/Contents/MacOS/AGXMetalG15G_C0
+       com.apple.ApplicationServices (48 - 66) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/ApplicationServices
+       com.apple.ApplicationServices.ATS (377 - 603) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ATS.framework/Versions/A/ATS
+       com.apple.ColorSyncLegacy (4.13.0 - 1) /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/ColorSyncLegacy.framework/Versions/A/ColorSyncLegacy
+       com.apple.audio.units.AudioUnit (1.14 - 1.14) /System/Library/Frameworks/AudioUnit.framework/Versions/A/AudioUnit
+       com.apple.speech.recognition.framework (6.0.5 - 6.0.5) /System/Library/Frameworks/Carbon.framework/Versions/A/Frameworks/SpeechRecognition.framework/Versions/A/SpeechRecognition
+       libobjcMsgSend21.dylib (973.1) /usr/lib/objc/libobjcMsgSend21.dylib
+       libLAPACK.dylib (1617.40.9) /System/Library/Frameworks/Accelerate.framework/Versions/A/Frameworks/vecLib.framework/Versions/A/libLAPACK.dylib
+       com.apple.CoreServices (1226 - 1226) /System/Library/Frameworks/CoreServices.framework/Versions/A/CoreServices
+       com.apple.DataDetection (8.0 - 851) /System/Library/Frameworks/DataDetection.framework/Versions/A/DataDetection
+       com.apple.dt.DeveloperToolsSupport (24.20.2 - 24.20.2) /System/Library/Frameworks/DeveloperToolsSupport.framework/Versions/A/DeveloperToolsSupport
+       com.apple.DiscRecording (9.0.3 - 9030.4.5) /System/Library/Frameworks/DiscRecording.framework/Versions/A/DiscRecording
+       libGIF.dylib (2851.1.8) /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libGIF.dylib
+       libJP2.dylib (2851.1.8) /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJP2.dylib
+       libJPEG.dylib (2851.1.8) /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libJPEG.dylib
+       libRadiance.dylib (2851.1.8) /System/Library/Frameworks/ImageIO.framework/Versions/A/Resources/libRadiance.dylib
+       libHeimdalProxy.dylib (88) /System/Library/Frameworks/Kerberos.framework/Versions/A/Libraries/libHeimdalProxy.dylib
+       com.apple.LDAPFramework (2.4.28 - 194.5) /System/Library/Frameworks/LDAP.framework/Versions/A/LDAP
+       com.apple.MLCompute (1.0 - 1) /System/Library/Frameworks/MLCompute.framework/Versions/A/MLCompute
+       com.apple.ModelIO (270.1.3 - 270.1.3) /System/Library/Frameworks/ModelIO.framework/Versions/A/ModelIO
+       libCoreFSCache.dylib (405) /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libCoreFSCache.dylib
+       libGLU.dylib (24.0.2) /System/Library/Frameworks/OpenGL.framework/Versions/A/Libraries/libGLU.dylib
+       libobjcMsgSend22.dylib (973.1) /usr/lib/objc/libobjcMsgSend22.dylib
+       com.apple.MetalPerformanceShadersGraph (7.1.6 - 7.1.6) /System/Library/Frameworks/MetalPerformanceShadersGraph.framework/Versions/A/MetalPerformanceShadersGraph
+       com.apple.audio.PHASE (1.0 - 400.101) /System/Library/Frameworks/PHASE.framework/Versions/A/PHASE
+       com.apple.RealityFoundation (1.0 - 453.40.5) /System/Library/Frameworks/RealityFoundation.framework/Versions/A/RealityFoundation
+       libfaceCore.dylib (10.1.7) /System/Library/Frameworks/Vision.framework/libfaceCore.dylib
+       com.apple.ANEClientSignals (1.0 - 1) /System/Library/PrivateFrameworks/ANEClientSignals.framework/Versions/A/ANEClientSignals
+       com.apple.avfoundationcf (2.0 - 810.13.1) /System/Library/PrivateFrameworks/AVFoundationCF.framework/Versions/A/AVFoundationCF
+       com.apple.AcousticMaterials (1.0 - 24.0.1) /System/Library/PrivateFrameworks/AcousticMaterials.framework/Versions/A/AcousticMaterials
+       com.apple.AlchemistBase (1.0 - 1) /System/Library/PrivateFrameworks/AlchemistBase.framework/Versions/A/AlchemistBase
+       com.apple.AlchemistService (1.0 - 32.0.6) /System/Library/PrivateFrameworks/AlchemistService.framework/Versions/A/AlchemistService
+       libobjcMsgSend23.dylib (973.1) /usr/lib/objc/libobjcMsgSend23.dylib
+       com.apple.UIKit.AnimationKit (9127.1.13.1.411) /System/Library/PrivateFrameworks/AnimationKit.framework/Versions/A/AnimationKit
+       com.apple.framework.Apple80211 (1.0 - 19177.1) /System/Library/PrivateFrameworks/Apple80211.framework/Versions/A/Apple80211
+       com.apple.AppleFSCompression (182.40.4 - 1.0) /System/Library/PrivateFrameworks/AppleFSCompression.framework/Versions/A/AppleFSCompression
+       com.apple.cmphoto.AppleJPEGXL (1.0 - 1) /System/Library/PrivateFrameworks/AppleJPEGXL.framework/Versions/A/AppleJPEGXL
+       com.apple.AppleLDAP (27.2 - 63) /System/Library/PrivateFrameworks/AppleLDAP.framework/Versions/A/AppleLDAP
+       com.apple.AppleMSG (1.0 - 1) /System/Library/PrivateFrameworks/AppleMSG.framework/Versions/A/AppleMSG
+       com.apple.applesauce (1.0 - 17.7) /System/Library/PrivateFrameworks/AppleSauce.framework/Versions/A/AppleSauce
+       com.apple.AppleSplatRendering (20) /System/Library/PrivateFrameworks/AppleSplatRendering.framework/Versions/A/AppleSplatRendering
+       com.apple.AppleVAFramework (6.2.10 - 6.2.10) /System/Library/PrivateFrameworks/AppleVA.framework/Versions/A/AppleVA
+       com.apple.acg.AutoLoop (1.0 - 1) /System/Library/PrivateFrameworks/AutoLoop.framework/Versions/A/AutoLoop
+       com.apple.sharing.AutoUnlock (1.0 - 1) /System/Library/PrivateFrameworks/AutoUnlock.framework/Versions/A/AutoUnlock
+       com.apple.BackBoardHIDTouchEventProcessor (1.0 - 1) /System/Library/PrivateFrameworks/BackBoardHIDTouchEventProcessor.framework/Versions/A/BackBoardHIDTouchEventProcessor
+       com.apple.bom (14.0 - 280) /System/Library/PrivateFrameworks/Bom.framework/Versions/A/Bom
+       com.apple.BulkSymbolication (1.441 - 441) /System/Library/PrivateFrameworks/BulkSymbolication.framework/Versions/A/BulkSymbolication
+       com.apple.security.ByteMatrixVerification (1.0 - 1) /System/Library/PrivateFrameworks/ByteMatrixVerification.framework/Versions/A/ByteMatrixVerification
+       com.apple.CMCaptureCore (1.0 - 764.41.11) /System/Library/PrivateFrameworks/CMCaptureCore.framework/Versions/A/CMCaptureCore
+       com.apple.CMCaptureDevice (764.41.11) /System/Library/PrivateFrameworks/CMCaptureDevice.framework/Versions/A/CMCaptureDevice
+       com.apple.CampoServices (1.0 - 1) /System/Library/PrivateFrameworks/CampoServices.framework/Versions/A/CampoServices
+       com.apple.Centauri (1.0 - 1) /System/Library/PrivateFrameworks/Centauri.framework/Versions/A/Centauri
+       com.apple.cinematiccommunication.CinematicCommunication (1.0 - 1) /System/Library/PrivateFrameworks/CinematicCommunication.framework/Versions/A/CinematicCommunication
+       com.apple.CinematicFraming (1.0 - 764.41.11) /System/Library/PrivateFrameworks/CinematicFraming.framework/Versions/A/CinematicFraming
+       com.apple.cinematicutil.CinematicUtil (1.0 - 1) /System/Library/PrivateFrameworks/CinematicUtil.framework/Versions/A/CinematicUtil
+       com.apple.ClothPhysics (1.0 - 21.0.3) /System/Library/PrivateFrameworks/ClothPhysics.framework/Versions/A/ClothPhysics
+       com.apple.cloudkit.CloudAsset (2720.17.5) /System/Library/PrivateFrameworks/CloudAsset.framework/Versions/A/CloudAsset
+       com.apple.CloudTelemetryShared (1.0 - 2722.40.2) /System/Library/PrivateFrameworks/CloudTelemetryShared.framework/Versions/A/CloudTelemetryShared
+       com.apple.CommonAuth (4.0 - 2.0) /System/Library/PrivateFrameworks/CommonAuth.framework/Versions/A/CommonAuth
+       com.apple.ConfigProfileHelper (18.0 - 1800) /System/Library/PrivateFrameworks/ConfigProfileHelper.framework/Versions/A/ConfigProfileHelper
+       com.apple.ConnectedMode (1.0 - 1) /System/Library/PrivateFrameworks/ConnectedMode.framework/Versions/A/ConnectedMode
+       com.apple.CoreAUC (638.12 - 638.12) /System/Library/PrivateFrameworks/CoreAUC.framework/Versions/A/CoreAUC
+       com.apple.CoreAVCHD (6.0.0 - 6266.1) /System/Library/PrivateFrameworks/CoreAVCHD.framework/Versions/A/CoreAVCHD
+       com.apple.CoreAppleCVA (4.4.1 - 4.4.1) /System/Library/PrivateFrameworks/CoreAppleCVA.framework/Versions/A/CoreAppleCVA
+       com.apple.CoreDuetDaemonProtocol (1.0 - 1) /System/Library/PrivateFrameworks/CoreDuetDaemonProtocol.framework/Versions/A/CoreDuetDaemonProtocol
+       com.apple.CoreIK (1.0 - 271.0.1) /System/Library/PrivateFrameworks/CoreIK.framework/Versions/A/CoreIK
+       com.apple.CoreOC (11.3.7 - 11.3.7) /System/Library/PrivateFrameworks/CoreOC.framework/Versions/A/CoreOC
+       com.apple.CoreOCModules (11.3.7 - 11.3.7) /System/Library/PrivateFrameworks/CoreOCModules.framework/Versions/A/CoreOCModules
+       com.apple.CoreRE3DGSFoundation (20) /System/Library/PrivateFrameworks/CoreRE3DGSFoundation.framework/Versions/A/CoreRE3DGSFoundation
+       com.apple.CoreRealityIO (1.0 - 235.40.2) /System/Library/PrivateFrameworks/CoreRealityIO.framework/Versions/A/CoreRealityIO
+       libobjcMsgSend24.dylib (973.1) /usr/lib/objc/libobjcMsgSend24.dylib
+       com.apple.CoreRE (1.0 - 453.40.5) /System/Library/PrivateFrameworks/CoreRE.framework/Versions/A/CoreRE
+       libobjcMsgSend25.dylib (973.1) /usr/lib/objc/libobjcMsgSend25.dylib
+       com.apple.CoreUtilsExtras (1.0 - 1) /System/Library/PrivateFrameworks/CoreUtilsExtras.framework/Versions/A/CoreUtilsExtras
+       com.apple.DSExternalDisplay (3.1 - 380) /System/Library/PrivateFrameworks/DSExternalDisplay.framework/Versions/A/DSExternalDisplay
+       com.apple.darwinup-framework (1.0 - 348.40.10) /System/Library/PrivateFrameworks/Darwinup.framework/Versions/A/Darwinup
+       com.apple.DirectResource (1.0 - 47.40.1) /System/Library/PrivateFrameworks/DirectResource.framework/Versions/A/DirectResource
+       com.apple.DistributedSensing (1.0 - 1) /System/Library/PrivateFrameworks/DistributedSensing.framework/Versions/A/DistributedSensing
+       com.apple.EmbeddingCore (1.0 - 1) /System/Library/PrivateFrameworks/EmbeddingCore.framework/Versions/A/EmbeddingCore
+       com.apple.ftawd (8.0 - 900) /System/Library/PrivateFrameworks/FTAWD.framework/Versions/A/FTAWD
+       com.apple.FeatureFlags (1.0 - 111) /System/Library/PrivateFrameworks/FeatureFlags.framework/Versions/A/FeatureFlags
+       com.apple.FlexMusicKit (1.0 - 1) /System/Library/PrivateFrameworks/FlexMusicKit.framework/Versions/A/FlexMusicKit
+       com.apple.FontServices (1.0 - 1) /System/Library/PrivateFrameworks/FontServices.framework/Versions/A/FontServices
+       libXTFontStaticRegistryData.dylib (353) /System/Library/PrivateFrameworks/FontServices.framework/libXTFontStaticRegistryData.dylib
+       com.apple.Futhark (1.0 - 1) /System/Library/PrivateFrameworks/Futhark.framework/Versions/A/Futhark
+       libGPUCompilerUtils.dylib (32023.922.4) /System/Library/PrivateFrameworks/GPUCompiler.framework/Versions/32023/Libraries/libGPUCompilerUtils.dylib
+       com.apple.GPUWrangler (8.1.12 - 8.1.12) /System/Library/PrivateFrameworks/GPUWrangler.framework/Versions/A/GPUWrangler
+       com.apple.Geometry (1.0 - 67.40.1) /System/Library/PrivateFrameworks/Geometry.framework/Versions/A/Geometry
+       com.apple.GraphComputeRT (2.3.1 - 2.3.1) /System/Library/PrivateFrameworks/GraphComputeRT.framework/Versions/A/GraphComputeRT
+       libobjcMsgSend26.dylib (973.1) /usr/lib/objc/libobjcMsgSend26.dylib
+       com.apple.IOPresentment (67 - 67) /System/Library/PrivateFrameworks/IOPresentment.framework/Versions/A/IOPresentment
+       com.apple.acg.InertiaCam (1.0 - 1) /System/Library/PrivateFrameworks/InertiaCam.framework/Versions/A/InertiaCam
+       com.apple.JetAsset (1.0 - 1) /System/Library/PrivateFrameworks/JetAsset.framework/Versions/A/JetAsset
+       com.apple.JetFoundation (1.0 - 1) /System/Library/PrivateFrameworks/JetFoundation.framework/Versions/A/JetFoundation
+       com.apple.LearnedFeatures (9.26.4 - 9_26_4_28) /System/Library/PrivateFrameworks/LearnedFeatures.framework/Versions/A/LearnedFeatures
+       com.apple.Leo (1.0 - 916.58.114) /System/Library/PrivateFrameworks/Leo.framework/Versions/A/Leo
+       com.apple.LocalAuthenticationCredentialServices (2319.40.43) /System/Library/PrivateFrameworks/LocalAuthenticationCredentialServices.framework/Versions/A/LocalAuthenticationCredentialServices
+       com.apple.MIL (3605.1 - 3605.1.1) /System/Library/PrivateFrameworks/MIL.framework/Versions/A/MIL
+       com.apple.mlcompiler.runtime (3600.11.1 - 3600.11.1) /System/Library/PrivateFrameworks/MLCompilerRuntime.framework/Versions/A/MLCompilerRuntime
+       com.apple.mlcompiler.services (3600.11.1 - 3600.11.1) /System/Library/PrivateFrameworks/MLCompilerServices.framework/Versions/A/MLCompilerServices
+       com.apple.gpusw.MTL3On4 (1.0 - 1) /System/Library/PrivateFrameworks/MTL3On4.framework/Versions/A/MTL3On4
+       com.apple.mxi (1.0 - 1) /System/Library/PrivateFrameworks/MXI.framework/Versions/A/MXI
+       com.apple.Mangrove (1.0 - 25) /System/Library/PrivateFrameworks/Mangrove.framework/Versions/A/Mangrove
+       com.apple.marco (10.0 - 1000) /System/Library/PrivateFrameworks/Marco.framework/Versions/A/Marco
+       com.apple.MediaAnalysisAccess (1.0 - 1) /System/Library/PrivateFrameworks/MediaAnalysisAccess.framework/Versions/A/MediaAnalysisAccess
+       com.apple.MediaAnalysisCore (1.0 - 1) /System/Library/PrivateFrameworks/MediaAnalysisCore.framework/Versions/A/MediaAnalysisCore
+       com.apple.MediaAnalysisPhotosServices (1.0 - 1) /System/Library/PrivateFrameworks/MediaAnalysisPhotosServices.framework/Versions/A/MediaAnalysisPhotosServices
+       com.apple.MediaFoundation (1.0 - 4026.200.17) /System/Library/PrivateFrameworks/MediaFoundation.framework/Versions/A/MediaFoundation
+       libobjcMsgSend27.dylib (973.1) /usr/lib/objc/libobjcMsgSend27.dylib
+       com.apple.ModelInterfaces (441.26.3) /System/Library/PrivateFrameworks/ModelInterfaces.framework/Versions/A/ModelInterfaces
+       com.apple.MusicLibrary (1.0.0 - 4026.200.21) /System/Library/PrivateFrameworks/MusicLibrary.framework/Versions/A/MusicLibrary
+       com.apple.sear.NSPredicateSecurityPolicy (1.0 - 1) /System/Library/PrivateFrameworks/NSPredicateSecurityPolicy.framework/Versions/A/NSPredicateSecurityPolicy
+       com.apple.NetAuth (6.2 - 6.2) /System/Library/PrivateFrameworks/NetAuth.framework/Versions/A/NetAuth
+       com.apple.framework.netrb (1.0 - 1) /System/Library/PrivateFrameworks/Netrb.framework/Versions/A/Netrb
+       com.apple.OAuth (25 - 25) /System/Library/PrivateFrameworks/OAuth.framework/Versions/A/OAuth
+       com.apple.OSEligibility (446.41.1) /System/Library/PrivateFrameworks/OSEligibility.framework/Versions/A/OSEligibility
+       libobjcMsgSend28.dylib (973.1) /usr/lib/objc/libobjcMsgSend28.dylib
+       com.apple.mlpt.ODIE (1.0 - 1) /System/Library/PrivateFrameworks/ODIE.framework/Versions/A/ODIE
+       com.apple.cloudos.PCCAgentClientCommon (1.0 - 1) /System/Library/PrivateFrameworks/PCCAgentClientCommon.framework/Versions/A/PCCAgentClientCommon
+       com.apple.ParsingInternal (0.0.1 - 5027.1.6) /System/Library/PrivateFrameworks/ParsingInternal.framework/Versions/A/ParsingInternal
+       com.apple.PhoneNumbers (1.0 - 1) /System/Library/PrivateFrameworks/PhoneNumbers.framework/Versions/A/PhoneNumbers
+       com.apple.PhotosGenerativeServices (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotosGenerativeServices.framework/Versions/A/PhotosGenerativeServices
+       com.apple.PhotosSpatialMediaCore (1.0 - 916.58.114) /System/Library/PrivateFrameworks/PhotosSpatialMediaCore.framework/Versions/A/PhotosSpatialMediaCore
+       com.apple.Quagga (191 - 191) /System/Library/PrivateFrameworks/Quagga.framework/Versions/A/Quagga
+       com.apple.RESync (1.0 - 453.40.5) /System/Library/PrivateFrameworks/RESync.framework/Versions/A/RESync
+       com.apple.RealityFusion (1.0 - 453.40.5) /System/Library/PrivateFrameworks/RealityFusion.framework/Versions/A/RealityFusion
+       com.apple.SceneHosting (1.0 - 38.1.2) /System/Library/PrivateFrameworks/SceneHosting.framework/Versions/A/SceneHosting
+       com.apple.siri.analytics.SchemaTypesCore (1.0 - 1) /System/Library/PrivateFrameworks/SchemaTypesCore.framework/Versions/A/SchemaTypesCore
+       com.apple.SentencePieceInternal (70.3) /System/Library/PrivateFrameworks/SentencePieceInternal.framework/Versions/A/SentencePieceInternal
+       com.apple.ServicesAnalyticsCore (1.0 - 1) /System/Library/PrivateFrameworks/ServicesAnalyticsCore.framework/Versions/A/ServicesAnalyticsCore
+       com.apple.ServicesAnalyticsKit (1.0 - 1) /System/Library/PrivateFrameworks/ServicesAnalyticsKit.framework/Versions/A/ServicesAnalyticsKit
+       com.apple.SetupKit (1.0 - 1) /System/Library/PrivateFrameworks/SetupKit.framework/Versions/A/SetupKit
+       com.apple.sharing.SharingCore (1.0 - 1) /System/Library/PrivateFrameworks/SharingCore.framework/Versions/A/SharingCore
+       libobjcMsgSend29.dylib (973.1) /usr/lib/objc/libobjcMsgSend29.dylib
+       com.apple.SoftLinking (1.0 - 72) /System/Library/PrivateFrameworks/SoftLinking.framework/Versions/A/SoftLinking
+       com.apple.SpeechEngine (1.0 - 1) /System/Library/PrivateFrameworks/SpeechEngine.framework/Versions/A/SpeechEngine
+       com.apple.SpotlightEmbeddingCore (1.0 - 2465.1.9.400) /System/Library/PrivateFrameworks/SpotlightEmbeddingCore.framework/Versions/A/SpotlightEmbeddingCore
+       com.apple.i18n.RecencyService (1.0 - 1) /System/Library/PrivateFrameworks/Stickers.framework/Support/IndexerService.framework/Versions/A/IndexerService
+       com.apple.i18n.ServiceShared (1.0 - 1) /System/Library/PrivateFrameworks/Stickers.framework/Support/ServiceShared.framework/Versions/A/ServiceShared
+       com.apple.StarmojiSearch (1.0 - 1) /System/Library/PrivateFrameworks/Stickers.framework/Support/StarmojiSearch.framework/Versions/A/StarmojiSearch
+       com.apple.tailspin.TailspinSymbolication (1.0 - 268) /System/Library/PrivateFrameworks/TailspinSymbolication.framework/Versions/A/TailspinSymbolication
+       libobjcMsgSend30.dylib (973.1) /usr/lib/objc/libobjcMsgSend30.dylib
+       com.apple.TrustEvaluationAgent (2.0 - 40.40.1) /System/Library/PrivateFrameworks/TrustEvaluationAgent.framework/Versions/A/TrustEvaluationAgent
+       com.apple.USDLib_FormatLoaderProxy (1.0 - 24.1.32) /System/Library/PrivateFrameworks/USDLib_FormatLoaderProxy.framework/Versions/A/USDLib_FormatLoaderProxy
+       com.apple.USDObjCKit (1.0 - 59.2.2) /System/Library/PrivateFrameworks/USDObjCKit.framework/Versions/A/USDObjCKit
+       com.apple.VDAF (1.0 - 35.5) /System/Library/PrivateFrameworks/VDAF.framework/Versions/A/VDAF
+       com.apple.vista (20) /System/Library/PrivateFrameworks/Vista.framework/Versions/A/Vista
+       com.apple.wallpaper.services (1.0 - 313.1.14.401) /System/Library/PrivateFrameworks/WallpaperServices.framework/Versions/A/WallpaperServices
+       com.apple.kperfdata (1.0 - 1) /System/Library/PrivateFrameworks/kperfdata.framework/Versions/A/kperfdata
+       libobjcMsgSend31.dylib (973.1) /usr/lib/objc/libobjcMsgSend31.dylib
+       com.apple.ggml.CoreAICommon (1.0 - 3605.6.4) /System/Library/SubFrameworks/CoreAICommon.framework/Versions/A/CoreAICommon
+       com.apple.ggml.CoreAICompiler (1.0 - 3605.6.4) /System/Library/SubFrameworks/CoreAICompiler.framework/Versions/A/CoreAICompiler
+       com.apple.CoreAIRuntime (1.0 - 3605.6.4) /System/Library/SubFrameworks/CoreAIRuntime.framework/Versions/A/CoreAIRuntime
+       com.apple.UIKit.FocusEngine (9127.1.13.1.411) /System/Library/SubFrameworks/FocusEngine.framework/Versions/A/FocusEngine
+       com.apple.shadergraph (159.40.2) /System/Library/SubFrameworks/ShaderGraph.framework/Versions/A/ShaderGraph
+       libobjcMsgSend32.dylib (973.1) /usr/lib/objc/libobjcMsgSend32.dylib
+       libobjcMsgSend33.dylib (973.1) /usr/lib/objc/libobjcMsgSend33.dylib
+       libCRFSuite.dylib (55) /usr/lib/libCRFSuite.dylib
+       libChineseTokenizer.dylib (44) /usr/lib/libChineseTokenizer.dylib
+       libCoreEntitlements.dylib (94) /usr/lib/libCoreEntitlements.dylib
+       libFDRDecode.dylib (1636.40.11) /usr/lib/libFDRDecode.dylib
+       libMatch.1.dylib (50.40.2) /usr/lib/libMatch.1.dylib
+       libParallelCompression.dylib (469.40.4) /usr/lib/libParallelCompression.dylib
+       libSMC.dylib (40) /usr/lib/libSMC.dylib
+       libSpatial.dylib (113) /usr/lib/libSpatial.dylib
+       libSystem.B.dylib (1359.40.3) /usr/lib/libSystem.B.dylib
+       libThaiTokenizer.dylib (28) /usr/lib/libThaiTokenizer.dylib
+       libapple_nghttp2.dylib (43) /usr/lib/libapple_nghttp2.dylib
+       libaxis.dylib (8.1.15) /usr/lib/libaxis.dylib
+       libbz2.1.0.dylib (49) /usr/lib/libbz2.1.0.dylib
+       libcharset.1.dylib (123) /usr/lib/libcharset.1.dylib
+       libcmph.dylib (9) /usr/lib/libcmph.dylib
+       libcompression.dylib (212.41.1) /usr/lib/libcompression.dylib
+       libcoretls_cfhelpers.dylib (189.40.2) /usr/lib/libcoretls_cfhelpers.dylib
+       libcsfde.dylib (572.40.2.0.1) /usr/lib/libcsfde.dylib
+       libcurl.4.dylib (168.40.2) /usr/lib/libcurl.4.dylib
+       libdscsym.dylib (441) /usr/lib/libdscsym.dylib
+       libedit.3.dylib (65) /usr/lib/libedit.3.dylib
+       libexpat.1.dylib (49) /usr/lib/libexpat.1.dylib
+       libfakelink.dylib (5) /usr/lib/libfakelink.dylib
+       libheimdal-asn1.dylib (725.40.6) /usr/lib/libheimdal-asn1.dylib
+       liblzma.5.dylib (21) /usr/lib/liblzma.5.dylib
+       libmecab.dylib (1160.1.5) /usr/lib/libmecab.dylib
+       libmecabra.dylib (1160.1.5) /usr/lib/libmecabra.dylib
+       libmrc.dylib (3111.40.45) /usr/lib/libmrc.dylib
+       libsasl2.2.dylib (219) /usr/lib/libsasl2.2.dylib
+       libswiftPrespecialized.dylib (0) /usr/lib/libswiftPrespecialized.dylib
+       libtidy.A.dylib (21) /usr/lib/libtidy.A.dylib
+       libz.1.dylib (105) /usr/lib/libz.1.dylib
+       libswiftAppleArchive.dylib (469.40.4) /usr/lib/swift/libswiftAppleArchive.dylib
+       libswiftCoreGraphics.dylib (17) /usr/lib/swift/libswiftCoreGraphics.dylib
+       libswiftCoreImage.dylib (3) /usr/lib/swift/libswiftCoreImage.dylib
+       libswiftDemangle.dylib (6.4.2.1.9) /usr/lib/swift/libswiftDemangle.dylib
+       libswiftFoundation.dylib (2000) /usr/lib/swift/libswiftFoundation.dylib
+       libswiftIOKit.dylib (1) /usr/lib/swift/libswiftIOKit.dylib
+       libswiftIntents.dylib (12) /usr/lib/swift/libswiftIntents.dylib
+       libswiftMLCompute.dylib (87) /usr/lib/swift/libswiftMLCompute.dylib
+       libswiftMetal.dylib (383.1) /usr/lib/swift/libswiftMetal.dylib
+       libswiftOSLog.dylib (10) /usr/lib/swift/libswiftOSLog.dylib
+       libswiftSpatial.dylib (113) /usr/lib/swift/libswiftSpatial.dylib
+       libswiftSwiftOnoneSupport.dylib (6.4.2 - 6.4.2.1.9) /usr/lib/swift/libswiftSwiftOnoneSupport.dylib
+       libswift_Builtin_float.dylib (6.4.2.1.9) /usr/lib/swift/libswift_Builtin_float.dylib
+       libswift_DarwinFoundation2.dylib (428.40.1) /usr/lib/swift/libswift_DarwinFoundation2.dylib
+       libswift_DarwinFoundation3.dylib (428.40.1) /usr/lib/swift/libswift_DarwinFoundation3.dylib
+       libswiftsimd.dylib (25) /usr/lib/swift/libswiftsimd.dylib
+       libswiftsys_time.dylib (428.40.1) /usr/lib/swift/libswiftsys_time.dylib
+       libcache.dylib (95) /usr/lib/system/libcache.dylib
+       libcommonCrypto.dylib (600041.40.3) /usr/lib/system/libcommonCrypto.dylib
+       libcompiler_rt.dylib (103.4) /usr/lib/system/libcompiler_rt.dylib
+       libkeymgr.dylib (31) /usr/lib/system/libkeymgr.dylib
+       libkxld.dylib (13432.41.4) /usr/lib/system/libkxld.dylib
+       libmacho.dylib (27104) /usr/lib/system/libmacho.dylib
+       libremovefile.dylib (96.40.3) /usr/lib/system/libremovefile.dylib
+       libsystem_collections.dylib (1786.40.6) /usr/lib/system/libsystem_collections.dylib
+       libsystem_darwindirectory.dylib (129.0.1) /usr/lib/system/libsystem_darwindirectory.dylib
+       libsystem_eligibility.dylib (446.41.1) /usr/lib/system/libsystem_eligibility.dylib
+       libsystem_m.dylib (3326.40.2) /usr/lib/system/libsystem_m.dylib
+       libsystem_sanitizers.dylib (32) /usr/lib/system/libsystem_sanitizers.dylib
+       libsystem_secinit.dylib (182.40.2) /usr/lib/system/libsystem_secinit.dylib
+       libsystem_trial.dylib (511.1.2) /usr/lib/system/libsystem_trial.dylib
+       libunwind.dylib (2200.5) /usr/lib/system/libunwind.dylib
+       com.apple.spotlight.pommesrankingcore (1.0 - 6.1.1) /System/Library/PrivateFrameworks/PommesRankingCore.framework/Versions/A/PommesRankingCore
+       libobjcMsgSend34.dylib (973.1) /usr/lib/objc/libobjcMsgSend34.dylib
+       libusd_ms.dylib (24.1.32) /usr/lib/usd/libusd_ms.dylib
+       libobjcMsgSend35.dylib (973.1) /usr/lib/objc/libobjcMsgSend35.dylib
